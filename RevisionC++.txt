@@ -1,0 +1,1897 @@
+Compilation Process C++-
+1. hello.cpp - source code
+2. hello.i - preprocessor
+3. hello.s - compiler - convert to assembly code
+4. hello.o - assembler - translate to object code 
+5. hello.exe - linker - 
+library, modules linkink and hdd store
+6. loder - 
+loads runtime objects/ modules in main memory
+
+Compilation Process Python-
+1. source code
+interpreter - (2, 3, 4)
+2. compiler
+3. byte code
+4. virtual machine - (library modules)
+5. running code 
+
+Monolithic Programming - single unit code
+Procedural programming - code functions
+Modular programming - structure and function
+Object Oriented Programming - classes and objects
+
+Memory
+1. heap - dynamic allocation
+2. stack - static memory allocation
+3. data - variables
+4. code section - source code / instructions
+
+*using directive
+This directive tells the compiler that the subsequent code is making use of names in the specified namespace.
+
+
+*IDE
+Overview
+
+An integrated development environment (IDE) is software for building applications that combines common developer 
+tools into a single graphical user interface (GUI). 
+An IDE typically consists of:
+
+    Source code editor: A text editor that can assist in writing software code with features such as 
+	syntax highlighting with visual cues, 
+	providing language specific auto-completion, and 
+	checking for bugs as code is being written.
+    
+	Local build automation: Utilities that automate simple, repeatable tasks as part of creating 
+	a local build of the software for use by the developer, 
+	like compiling computer source code into binary code, 
+	packaging binary code, and 
+	running automated tests.
+    
+	Debugger: A program for testing other programs that can graphically display the location of a bug in the original 
+	code.
+
+
+IDE
+1. Turbo C++
+2. Xcode
+3. Visual Studio
+4. Code Blocks
+
+Data Types
+A. primitive
+a. integer - int , char
+b. bool
+c. floating - float, double
+
+B. user defined
+1. enum
+2. structure
+3. union
+4. class 
+
+C. derived
+1. array
+2. pointer
+3.reference
+
+Data type sizes in bytes
+1. int - 4
+2. float - 4
+3. char - 1
+4. double - 8
+5. bool - undefined
+6. long int - 8
+7. long double - 10
+8. pointer = 8
+
+
+Bit Structure
+MSB.........LSB
+sign(1 - negative, 0 - positive)
+
+ASCII - 
+American Standard Code for Information Interchange 
+1. A - 65 Z - 90
+2. a - 97 z - 122
+3. 0 - 48 9 - 57
+
+
+*Arithmetic - +, -, *, /, //, %, 
+
+*Relational - <, <=, >, >=, ==
+
+*Logical - &&, ||, !
+
+*Bitwise - &, |, ~, ^
+
+*Increment - ++
+
+*Decrement - --
+
+*Assignment - = 
+
+*Precedence - (); *, /, %; +, -
+
+*Compund Assignment - +=, -=, *=, /=, %=, &=, |=, <<=, >>=
+
+*pre_inc - ++p
+*post_inc - p++
+*pre_dec - --p;
+*post_dec - p--;
+
+*x << i, x * 2^i
+
+*x >> i, x / 2^i
+
+*Enum
+Enum, which is also known as enumeration, is a user-defined data type that enables you to create a new data type 
+that has a fixed range of possible values, and the variable can select one value from the set of values. 
+For example, suppose you are the owner of an ice cream shop, and you sell a limited range of ice cream flavors. 
+So you want the customers to select only from that collection of ice creams in your shop. 
+This becomes an enumeration with ice cream as the name of enumeration and 
+different flavors of ice creams as its elements.
+
+If you are designing a button for Windows application. 
+You can set flags ITALICS, BOLD and UNDERLINE to work with text.
+
+Since, the integral constants are power of 2, you can combine two or more flags at once 
+without overlapping using bitwise OR | operator. 
+This allows you to choose two or more flags at once. For example,
+
+enum day {mon, tue, wed, thur, fri, sat, sun};
+day d;
+d = mon; // 0
+d = tue; // 1
+
+enum day {mon=5, tue, wed, thur=9, fri, sat, sun};
+day d;
+d = mon; // 5
+d = tue; // 6
+d = thur; // 9
+
+*typedef int marks;
+marks m1, m2, m3;
+
+*If
+if (condition){
+
+}else{
+
+}
+
+*short Circuit - (logical operators)
+if(a > b && a > c)
+if(a > b || a > c)
+
+*Dynamic declaration - inside loop
+
+*Switch
+
+expr = int / char
+
+switch(expr){
+	case 1:
+		break;
+	case 2;
+		break;
+	default:
+		
+}
+
+*Loop/ Iteration
+
+- counter declaration
+1. while(cond){counter updation}
+2. do{}while(); 
+3. for(initialize; condition; updation){}
+
+<climits> INT_MIN, INT_MAX
+
+*Array
+In C++, an array is a variable that can store multiple values of the same type. 
+
+For example,
+Suppose a class has 27 students, and we need to store the grades of all of them. 
+Instead of creating 27 separate variables, we can simply create an array:
+
+Elements of an array have consecutive addresses.
+Here, the size of each element is increased by 4. This is because the size of int is 4 bytes.
+
+
+In our range-based loop, we have used the code const int &n instead of int n as the range declaration. 
+However, the const int &n is more preferred because:
+
+    Using int n simply copies the array elements to the variable n during each iteration. 
+	This is not memory-efficient.
+
+    &n, however, uses the memory address of the array elements to access their data 
+	without copying them to a new variable. 
+	This is memory-efficient.
+    We are simply printing the array elements, not modifying them. 
+	
+	Therefore, we use const so as not to accidentally change the values of the array.
+
+We used a ranged for loop instead of a normal for loop.
+
+A normal for loop requires us to specify the number of iterations, which is given by the size of the array.
+
+But a ranged for loop does not require such specifications.
+
+int A[5] = {5,6,7,8,9,10}
+
+for(int i=0; i < 5; i++){
+	cout << A[i] << endl;
+}
+
+for(auto x :A){
+	cout << x << endl;
+}
+
+for(int &x :A){
+	cout << ++x << endl;
+}
+
+int A[10]; n = 10;
+
+cout << "Enter numbers: "
+for(int i = 0; i < n; i++){
+	cin >> A[i];
+}
+
+cout << "Enter key: ";
+cin >> key
+
+for(int i = 0; i < n; i++){
+	if (key == A[i]){
+		cout << "Key found " << endl;
+}
+cout << "Key not found " << endl;
+	
+*2D array
+
+int A[2][3] = {{1,2,3}, {4,5,6}}
+
+for(int i = 0; i < 2; i++){
+	for(int j = 0; j < 3; j++){
+		cout << A[i][j];
+	}
+	cout << endl;
+}
+
+for(auto &x : A){
+	for(auto& y : x){
+		cin >> y;
+	}
+	cout << endl;
+}
+
+for(auto &x : A){
+	for(auto& y : x){
+		cout << y;
+	}
+	cout << endl;
+}
+
+int A[2][3] = {1,2,3,4,5,6}
+int B[2][3] = {7,8,9,10,11}
+int C[2][3];
+
+for(int i = 0; i < 2; i++){
+	for(int j = 0; j < 3; j++){
+		C[i][j] = A[i][j] + B[i][j];
+	}
+}
+
+for(int i = 0; i < 2; i++){
+	for(int j = 0; j < 3; j++){
+		cout << C[i][j];
+	}
+	cout << endl;
+}
+
+*2 D array declaration
+int main() {
+
+	int row{ 3 };
+	int col{ 4 };
+
+	int** arr = new int* [row];
+
+	for (int i=0; i < row; i++)
+	{
+		arr[i] = new int[4];
+	}
+		
+	for (int i=0; i < r; i++)
+	{
+		delete[] arr[i];
+	}
+		
+	delete[] arr;
+	arr = nullptr;
+
+
+	return 0;
+}
+
+*Pointers
+In C++, pointers are variables that store the memory addresses of other variables.
+
+If we have a variable var in our program, &var will give us its address in the memory.
+
+int x = 10;
+int* p;
+p = &x;
+
+cout << x << endl;  // value
+cout << &x << endl; // address
+cout << p << endl;  // value address
+cout << &p << endl; // self address
+cout << *p << endl; // dereference
+
+*Heap
+int A[5] = {1,2,3,4,5};
+int *p;
+p = new int[5];
+int *p = new int[5];
+delete []p;
+p = nullptr;
+
+*Pointer arithmetic
+int A[5] = {1,2,3,4,5}
+int *p = A;
+int *q = &A[2];
+p++, p--, p += 2, p -= 2, d = p - q
+sizeof(A)
+
+*Reference
+int x = 10;
+int &y = x;
+
+*String
+char x = 'A';
+char S[10] = "Hello";
+char S[] = "Hello";
+char S[] = {"H", "e", "l", "l", "o", "\0"}
+char S[] = {65,66,67,67, "\0"}
+
+*Reading and printing string
+char s[10];
+cout << "Enter your name: ";
+cin >> s;
+
+char s[50];
+cout << "Enter your name: ";
+cin.getline(cin, s);
+
+*#include<string>
+Strings are used for storing text.
+A string variable contains a collection of characters surrounded by double quotes:
+
+string s;
+cin >> s;
+getline(cin, s);
+cout << s;
+s.length(), s.size(), s.append(), s.clear(), s.empty(), s.push_back(), s.pop_back(), 
+s.find, s.rfind, s.find_first_of, s.find_last_of
+
+*string iterator
+string::iterator
+begin()
+end()
+reverse_iterator
+rbegin()
+rend()
+
+string s = "Datta";
+string::iterator it;
+for(it=s.begin(); it != s.end(); it++){
+	cout << *it;
+}
+
+string::reverse_iterator it;
+for(it=s.rbegin(); it != s.rend(); it++){
+	cout << *it;
+}
+
+lower to capital , *it - 32
+for(it=s.begin(); s[it] != '\0'; it++){
+	count++;
+}
+cout << count;
+
+*Functions
+A function is a block of code which only runs when it is called.
+
+You can pass data, known as parameters, into a function.
+
+Functions are used to perform certain actions, and they are important for reusing code: 
+Define the code once, and use it many times.
+
+return_type fun_name(para_list){body}
+
+int add(int x, int y){
+	int z;
+	z = x + y;
+	return z;
+}
+
+int max(int x, int y, int z){
+	if(x > y && x > z)
+		return x;
+	else if (y > z)
+		return y; 
+	else:
+		return z;
+r = max(10, 12, 8);
+
+*Function Overloading
+C++ allows specification of more than one function of the same name in the same scope. 
+These functions are called overloaded functions. 
+Overloaded functions enable you to supply different semantics for a function, 
+depending on the types and number of arguments.
+
+For example, a print function that takes a std::string argument might perform very different tasks than one that 
+takes an argument of type double. 
+Overloading saves you from having to use names such as print_string or print_double. 
+At compile time, the compiler chooses which overload to use based on the type of arguments passed in by the caller. 
+If you call print(42.0), then the void print(double d) function will be invoked. 
+If you call print("hello world"), then the void print(std::string) overload will be invoked.
+
+No - function return types, typedef, unspecified array bound
+
+int add(int x, int y);
+int add(int x, int y, int z);
+int add(float x, float y)
+
+*Function template
+Function templates are special functions that can operate with generic types. 
+This allows us to create a function template whose functionality can be adapted to more than one type 
+or class without repeating the entire code for each type.
+
+In C++ this can be achieved using template parameters. 
+A template parameter is a special kind of parameter that can be used to pass a type as argument: 
+just like regular function parameters can be used to pass values to a function, 
+template parameters allow to pass also types to a function. 
+These function templates can use these parameters as if they were any other regular type.
+
+The format for declaring function templates with type parameters is:
+
+template <class identifier> function_declaration;
+template <typename identifier> function_declaration;
+
+template <class T, class T>
+T max(T x, T y){
+	if (x > y)
+		return x
+	else
+		return y 
+		
+*Default arguments
+In C++ programming, we can provide default values for function parameters.
+If a function with default arguments is called without passing arguments, then the default parameters are used.
+However, if arguments are passed while calling the function, the default arguments are ignored.
+
+int add(int x, int y, int z=0);
+int add(int x, int y=1, int z=0);	
+int add(int x = 2, int y=1, int z=0);
+
+*call by value
+Call By Value: In this parameter passing method, values of actual parameters are copied to function’s formal parameters 
+and the two types of parameters are stored in different memory locations. 
+So any changes made inside functions are not reflected in actual parameters of the caller.
+
+1. While calling a function, we pass values of variables to it. Such functions are known as “Call By Values”.
+2. In this method, the value of each variable in calling function is copied into corresponding dummy variables 
+of the called function.
+3. With this method, the changes made to the dummy variables in the called function have no effect on the values of 
+actual variables in the calling function.
+4. Thus actual values of a and b remain unchanged even after exchanging the values of x and y.
+5. In call by values we cannot alter the values of actual variables through function calls.
+6. Values of variables are passes by Simple technique.
+
+void swap(int a, int b){
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+	cout << a << " " << b << endl;
+}
+
+swap(x, y)
+
+*call by reference
+In previous lessons, we discussed that when passing an argument by value, a copy of the argument is made into the 
+function parameter. 
+For fundamental types (which are cheap to copy), this is fine. 
+But copying is typically expensive for class types (such as std::string). 
+We can avoid making an expensive copy by utilizing passing by (const) reference (or pass by address) instead.
+
+In C++, we can either use pointers or references to for pass by reference.
+
+Call by Reference: Both the actual and formal parameters refer to the same locations, 
+so any changes made inside the function are actually reflected in actual parameters of the caller.
+
+1. While calling a function, instead of passing the values of variables, we pass address of variables
+(location of variables) to the function known as “Call By References.
+2. In this method, the address of actual variables in the calling function are copied into the dummy variables 
+of the called function.
+3. With this method, using addresses we would have an access to the actual variables and 
+hence we would be able to manipulate them.
+4. Thus actual values of a and b get changed after exchanging values of x and y.
+5. In call by reference we can alter the values of variables through function calls.
+6. Pointer variables are necessary to define to store the address values of variables.
+
+void swap(int &a, int &b){
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+	cout << a << " " << b << endl;
+}
+
+swap(x, y)
+
+*call by address
+void swap(int *a, int *b){
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+	cout << a << " " << b << endl;
+}
+
+swap(&x, &y)	
+
+*Return
+We encounter a similar situation when returning by value: 
+a copy of the return value is passed back to the caller. 
+If the return type of the function is a class type, this can be expensive.
+
+
+C++ functions can return by value, by reference (but don't return a local variable by reference), 
+                                or by pointer (again, don't return a local by pointer).
+
+When returning by value, the compiler can often do optimizations that make it equally as fast as returning by reference,
+without the problem of dangling references. 
+These optimizations are commonly called "Return Value Optimization (RVO)" and/or 
+"Named Return Value Optimization (NRVO)".
+
+Another way to for the caller to provide an empty vector (by reference), 
+and have the function fill it in. 
+Then it doesn't need to return anything.
+
+*Return by address
+Return by address works almost identically to return by reference, 
+except a pointer to an object is returned instead of a reference to an object. 
+Return by address has the same primary caveat as return by reference -- 
+the object being returned by address must outlive the scope of the function returning the address, 
+otherwise the caller will receive a dangling pointer.
+
+The major advantage of return by address over return by reference is that we can have the function return nullptr 
+if there is no valid object to return. 
+For example, let’s say we have a list of students that we want to search. 
+If we find the student we are looking for in the list, we can return a pointer to the object representing 
+the matching student. 
+If we don’t find any students matching, we can return nullptr to indicate a matching student object was not found.
+
+The major disadvantage of return by address is that the caller has to remember to do a nullptr check 
+before dereferencing the return value, 
+otherwise a null pointer dereference may occur and undefined behavior will result. 
+Because of this danger, return by reference should be preferred over return by address 
+unless the ability to return “no object” is needed.
+
+
+int * fun(int size){
+	int * p = new int [size];
+	for(int i = 0; i < size; i++){
+		p[i] += i;
+	return p;
+}
+
+int *ptr = fun(5);
+
+**Want Speed? Pass by Value.
+
+*Return by reference
+the return type of function fun() is int&. 
+Hence, this function returns a reference of the variable num.
+
+The return statement is return a;. 
+Unlike return by value, this statement doesn't return value of a, instead it returns the variable itself (address).
+
+So, when the variable is returned, it can be assigned a value as done in fun() = 10;
+
+This stores 10 to the variable a, which is displayed onto the screen.
+
+Ordinary function returns value but this function doesn't. Hence, you cannot return a constant from the function. 
+You cannot return a local variable from this function. 
+
+int & fun(int & a){
+	return a;
+}
+
+int a = 10;
+fun(a);
+fun(a) = 25;
+
+*Gloabal variables
+If a variable is defined outside all functions, then it is called a global variable.
+
+The scope of a global variable is the whole program. 
+This means, It can be used and changed at any part of the program after its declaration.
+
+Likewise, its life ends only when the program ends.
+
+*Local variables
+A variable defined inside a function (defined inside function body between braces) is called a local variable
+or automatic variable.
+
+Its scope is only limited to the function where it is defined. 
+In simple terms, local variable exists and can be accessed only inside a function.
+
+The life of a local variable ends (It is destroyed) when the function exits.
+
+*Static variables
+A static local variable exists only inside a function where it is declared 
+(similar to a local variable) but its lifetime starts when the function is called and ends only when the program ends.
+
+The main difference between local variable and static variable is that, 
+the value of static variable persists the end of the program.
+
+static int a = 10;
+
+*pointer to a function
+void display(){
+	cout << "Hello World";
+}
+
+// declare void (*fp)();
+// initialize fp = display;
+// call (fp)()
+
+
+int add(int x, int y){
+	return x + y;
+}
+
+(*fp)(int,int);
+fp = add;
+(fp)(10,5);
+
+*OOPS
+OOP stands for Object-Oriented Programming.
+
+Procedural programming is about writing procedures or functions that perform operations on the data, 
+while object-oriented programming is about creating objects that contain both data and functions.
+
+Object-oriented programming has several advantages over procedural programming:
+
+    OOP is faster and easier to execute
+    OOP provides a clear structure for the programs
+    OOP helps to keep the C++ code DRY "Don't Repeat Yourself", 
+	and makes the code easier to maintain, modify and debug
+    OOP makes it possible to create full reusable applications with less code and shorter development time
+
+So, a class is a template for objects, and an object is an instance of a class.
+
+When the individual objects are created, they inherit all the variables and functions from the class.
+
+C++ is an object-oriented programming language.
+
+Everything in C++ is associated with classes and objects, along with its attributes and methods. 
+For example: in real life, a car is an object. 
+The car has attributes, such as weight and color, 
+and methods, such as drive and brake.
+
+Attributes and methods are basically variables and functions that belongs to the class. 
+These are often referred to as "class members".
+
+A class is a user-defined data type that we can use in our program, 
+and it works as an object constructor, or a "blueprint" for creating objects.
+
+When variables are declared within a class, they are called attributes.
+
+
+class Rectangle{
+	public:
+		int length;
+		int breadth;
+		int area(){
+			return length * breadth;
+		}
+		int perimeter(){
+			return 2 * (length + breadth);
+		}
+};
+
+int main(){
+	Rectangle r1;
+	r1.length = 10;
+	r1.breadth = 15;
+	cout << "Area is: " << r1.area() << endl;
+	cout << "Perimeter is: " << r1.perimeter() << endl;
+
+	return 0;
+}
+
+*Pointer to object
+int main(){
+	Rectangle r1;
+	Rectangle *p;
+	p = &r;
+	
+	p -> length = 10;
+	p -> breadth = 15;
+	cout << "Area is: " << p -> area() << endl;
+	cout << "Perimeter is: " << p -> perimeter() << endl;
+
+	return 0;
+}
+
+*Pointer to object
+int main(){
+	Rectangle r1;
+	Rectangle *p = new Rectangle;
+	
+	p -> length = 10;
+	p -> breadth = 15;
+	cout << "Area is: " << p -> area() << endl;
+	cout << "Perimeter is: " << p -> perimeter() << endl;
+
+	return 0;
+}
+
+Access Specifiers
+Access specifiers define how the members (attributes and methods) of a class can be accessed.
+
+In C++, there are three access specifiers:
+
+    public - members are accessible from outside the class
+    private - members cannot be accessed (or viewed) from outside the class
+    protected - members cannot be accessed from outside the class, 
+				however, they can be accessed in inherited classes.
+
+
+*Data hiding/ Encapsulation
+The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. 
+To achieve this, you must declare class variables/attributes as private 
+(cannot be accessed from outside the class). 
+If you want others to read or modify the value of a private member, 
+you can provide public get and set methods.
+
+1. Encapsulation ensures better control of your data, 
+because you (or others) can change one part of the code without affecting other parts
+2. Increased security of data
+
+class Rectangle{
+	private:
+		int length;
+		int breadth;
+	public:
+		void setLength(int l){
+			length = l;
+		}
+		
+		void setBreadth(int b){
+			breadth = b;
+		}
+		
+		int getLength() const{
+			return length;
+		}
+		
+		int getBreadth() const{
+			return breadth;
+		}
+		
+		int area(){
+			return length * breadth;
+		}
+		int perimeter(){
+			return 2 * (length + breadth);
+		}
+		
+};
+
+int main(){
+	Rectangle r1;
+	r1.setLength(10);
+	r1.setBreadth(15);
+	cout << "Length: " << r1.getLength() << endl;
+	cout << "Breadth: " << r1.getBreadth() << endl;
+	cout << "Area is: " << r1.area() << endl;
+	cout << "Perimeter is: " << r1.perimeter() << endl;
+
+	return 0;
+}
+
+*Constructors
+A constructor in C++ is a special method that is automatically called when an object of a class is created.
+
+To create a constructor, use the same name as the class, followed by parentheses ():
+
+Constructors can also take parameters (just like regular functions), 
+which can be useful for setting initial values for attributes.
+
+Inside the constructor we set the attributes equal to the constructor parameters. 
+When we call the constructor (by creating an object of the class), 
+we pass parameters to the constructor, 
+which will set the value of the corresponding attributes to the same:
+
+
+Just like functions, constructors can also be defined outside the class. 
+First, declare the constructor inside the class, and 
+then define it outside of the class by specifying the name of the class, 
+followed by the scope resolution :: operator, 
+followed by the name of the constructor (which is the same as the class):
+
+class Rectangle{
+	private:
+		int length;
+		int breadth;
+	public:
+		// default constructor
+		Rectangle(){
+			length = 0;
+			breadth = 0;
+		}
+	
+		// parameterized constructor
+		Rectangle(int l, int b){
+			setLength(l);
+			setBreadth(b);
+		}
+		
+		// copy constructor
+		Rectangle(const Rectangle &r){
+			length = r.length;
+			breadth = r.breadth;
+		}
+		
+		//2. Mutators
+		void setLength(int l){
+			length = l;
+		}
+		
+		//2. Mutators
+		void setBreadth(int b){
+			breadth = b;
+		}
+		
+		//3. Accessors
+		int getLength() const{
+			return length;
+		}
+		
+		//3. Accessors
+		int getBreadth() const{
+			return breadth;
+		}
+		
+		//4. Fascillitator
+		int area(){
+			return length * breadth;
+		}
+		
+		//4. Fascillitator
+		int perimeter(){
+			return 2 * (length + breadth);
+		}
+		
+};
+
+*Types of functions in Class
+1. Constructor - 
+2. Mutators
+3. Accessors
+4. Fascillitator
+5. Enquiry    - bool isSquare();
+6. Destructor - ~Rectangle();
+Destructors in C++ are members functions in a class that delete an object. 
+They are called when the class object goes out of scope such as when 
+the function ends, 
+the program ends, 
+a delete variable is called etc.
+
+Destructors are different from normal member functions as they don’t take any argument and don’t return anything. 
+Also, destructors have the same name as their class and their name is preceded by a tilde(~).
+
+*Scope Resolution Operator
+To declare and access class members outside of class body using :: symbol
+
+class Rectangle{
+	private:
+		int length;
+		int breadth;
+	public:
+		Rectangle();
+		Rectangle(int l, int b);
+		Rectangle(const Rectangle &r);
+		void setLength(int l);
+		void setBreadth(int b);
+		int getLength();
+		int getBreadth();
+		int area();
+		int perimeter();
+		bool isSquare();
+		~Rectangle();
+};
+
+Rectangle::Rectangle(){
+			length = 0;
+			breadth = 0;
+		}
+		
+Rectangle::Rectangle(int l, int b){
+			setLength(l);
+			setBreadth(b);
+		}
+		
+Rectangle::Rectangle(const Rectangle &r){
+			length = r.length;
+			breadth = r.breadth;
+		}
+
+void Rectangle::setLength(int l){
+			length = l;
+		}
+		
+void Rectangle::setBreadth(int b){
+			breadth = b;
+		}
+		
+int Rectangle::getLength() const{
+			return length;
+		}
+		
+int Rectangle::getBreadth() const{
+			return breadth;
+		}
+		
+int Rectangle::area(){
+			return length * breadth;
+		}
+		
+int Rectangle::perimeter(){
+			return 2 * (length + breadth);
+		}
+		
+bool Rectangle::isSquare(){
+			return length == breadth;
+		}
+		
+bool Rectangle::~Rectangle(){
+		cout << "Rectangle Destroyed " << endl;
+		}
+		
+*Inline Function
+In C++, we can declare a function as inline. 
+This copies the function to the location of the function call in compile-time 
+and may make the program execution faster.
+the compiler copies the code of the function to that call location.
+
+class Rectangle{
+	public:
+		int length;
+		int breadth;
+		int area(){
+			return length * breadth;
+		}
+		inline int perimeter();
+};
+
+int Rectangle::perimeter(){
+			return 2 * (length + breadth);
+		}
+		
+*Struct
+Structures (also called structs) are a way to group several related variables into one place. 
+Each variable in the structure is known as a member of the structure.
+
+Unlike an array, a structure can contain many different data types (int, string, bool, etc.).
+
+When a structure is created, no memory is allocated.
+
+The structure definition is only the blueprint for the creating of variables. 
+You can imagine it as a datatype. 
+
+When structure variable is defined, only then the required memory is allocated by the compiler.
+
+The members of structure variable is accessed using a dot (.) operator.
+
+struct Demo{
+	int x;
+	int y;
+	
+	void display(){
+		cout << x << " " << y << endl;
+	}
+	
+int main(){
+	
+	Demo d;
+	
+	d.x = 10;
+	d.y = 15;
+	d.display();
+	
+	return 0;
+}
+
+*Operator Overloading
+class Complex{
+	private:
+		int real;
+		int img;
+	public:
+		Complex(int r, int i){
+			real = r;
+			img = i;
+		}
+		
+		Complex operator+(Complex c1){
+			Complex temp;
+			temp.real = real + c1.real;
+			temp.img = img = c1.img;
+			return temp;
+			
+		friend Complex operator+(Complex c1, Complex c2);
+		friend void operator<<(ostream &o; Complex &c);
+		friend Complex & operator<<(ostream &out; Complex &c);
+};
+
+Complex operator+(Complex c1, Complex c2){
+	Complex temp;
+	temp.real = c1.real + c2.real;
+	temp.img = c1.img + c2.img;
+	return temp;
+}
+
+Complex c1(5, 7); c2 (9, 11); c3(0, 0);
+
+c3 = c1 + c2;
+
+c3 = operator+(c1, c2)
+
+c3,display();
+
+void operator<<(ostream &o; Complex c){
+	out << c.real << "+i" << c.img << endl;
+}
+
+Complex & operator<<(ostream &out; Complex &c){
+	out << c.real << "+i" << c.img << endl;
+	return out;
+}
+
+Complex c(3, 5);
+cout << c;
+operator<<(cout, c);
+
+*Inheritance
+In C++, it is possible to inherit attributes and methods from one class to another. 
+We group the "inheritance concept" into two categories:
+
+    derived class (child) - the class that inherits from another class
+    base class (parent) - the class being inherited from
+
+To inherit from a class, use the : symbol.
+
+It is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
+
+class Cuboid: public Rectangle{
+	private:
+		int height;
+	public:
+		Cuboid(int h){
+			height = h;
+		}
+		
+		void setHeight(int h){
+			height = h;
+		}
+		
+		int getHeight() const {
+			return height;
+		}
+		
+		int Volume(){
+			return getLength() * getBreadth() * getHeight();
+		}
+};
+
+Cuboid c(5);
+c.setLength(10);
+c.setBreadth(7);
+cout << "Volume is: " << c.Volume() << endl;
+
+*Constructors in Inheritance
+base - derived 1 - derived 2
+
+*Destructor in inheritance
+child 2 - child 1 - parent
+
+*Access Specifiers
+                  private     protected     public
+inside class         A            A            A
+
+derived class        x            A            A
+
+on object            x            x            A
+
+*Types of inheritance
+1. single        - A - B
+2. Hierarchical  - A - (B, C, D) - Generalization
+3. multilevel    - A - B - C     - specialization
+A class can also be derived from one class, which is already derived from another class.
+
+4. multiple      - (A, B) - c
+A class can also be derived from more than one base class, using a comma-separated list : public A, public B
+
+5. multipath     - A - (B virtual , C virtual) - D
+
+
+*Access
+child c: public p 
+(protected p - protected c, public p - public c)
+
+child c: protected p 
+(protected p - protected c, public p - protected c)
+
+child c: private p 
+(protected p - private c, public p - private c)
+
+*Base class pointer Derived class object - to achieve runtime polymorphism 
+Base ptr, Derived object - only access to base class functions (to avoid this)
+
+*Function Overriding 
+Suppose, the same function is defined in both the derived class and the based class. 
+Now if we call this function using the object of the derived class, the function of the derived class is executed.
+
+This is known as function overriding in C++. 
+The function in derived class overrides the function in base class.
+
+To access the overridden function of the base class, we use the scope resolution operator ::.
+
+We can also access the overridden function by using a pointer of the base class 
+to point to an object of the derived class and then calling the function from that pointer.
+
+class Base{
+	public:
+		void fun(){
+			cout << "Base fun: " << endl;
+		}	
+};
+
+class Derived : public Base{
+	public:
+		void fun(){
+			cout << "Derived fun: " << endl;
+		}
+};
+
+int main(){
+
+	Derived d;
+	d.fun(); // Derived fun:
+	
+	Base *ptr = &d;
+	ptr -> fun(); //Base fun: 
+
+	d.Base::fun();
+	
+	return 0;
+}
+
+*Making Base class function virtual
+In order to override the Base function instead of accessing it, 
+we need to use virtual functions in the Base class.
+
+class Base{
+	public:
+		virtual void fun(){
+			cout << "Base fun: " << endl;
+		}	
+};
+
+class Derived : public Base{
+	public:
+		void fun(){
+			cout << "Derived fun: " << endl;
+		}
+};
+
+int main(){
+
+	Derived d;
+	d.fun(); // Derived fun:
+	
+	Base *ptr = &d;
+	ptr -> fun(); //Derived fun: 
+	
+	Base *ptr = new Derived();
+	ptr -> fun(); //Derived fun:
+
+	return 0;
+}
+
+*Polymorphism
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+
+Like we specified in the previous chapter; 
+Inheritance lets us inherit attributes and methods from another class. 
+
+Polymorphism uses those methods to perform different tasks. 
+This allows us to perform a single action in different ways.
+
+For example, think of a base class called Animal that has a method called animalSound(). 
+Derived classes of Animals could be Pigs, Cats, Dogs, Birds - 
+And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):
+
+class Car{
+	public:
+		virtual void start(){cout << "Car started: " << endl;}
+		virtual void stop(){cout << "Car stopped: " << endl;}
+};
+
+class Innova : public Car{
+	public:
+		void start(){cout << "Innova started: " << endl;}
+		void stop(){cout << "Innova stopped: " << endl;}
+};
+
+class Swift : public Car{
+	public:
+		void start(){cout << "Swift started: " << endl;}
+		void stop(){cout << "Swift stopped: " << endl;}
+};
+
+int main(){
+
+	Car *ptr = new Innova();
+	
+	ptr -> start() // Innova started
+	
+	ptr = new Swift();
+	
+	ptr -> start() // Swift started
+	
+	return 0;
+}
+
+*Pure Virtual Function
+*Polymorphism
+Pure virtual functions are used
+
+    1. if a function doesn't have any use in the base class
+    2. but the function must be implemented by all its derived classes
+
+*Abstract Class
+class that contains a pure virtual function is known as an abstract class. 
+
+We cannot create objects of an abstract class. 
+However, we can derive classes from them, and 
+use their data members and member functions (except pure virtual functions).
+
+
+class Car{
+	public:
+		virtual void start() = 0;
+		virtual void stop() = 0;
+
+class Innova : public Car{
+	public:
+		void start(){cout << "Innova started: " << endl;}
+		void stop(){cout << "Innova stopped: " << endl;}
+};
+
+class Swift : public Car{
+	public:
+		void start(){cout << "Swift started: " << endl;}
+		void stop(){cout << "Swift stopped: " << endl;}
+};
+
+int main(){
+
+	Car *ptr = new Innova();
+	
+	ptr -> start() // Innova started
+	
+	ptr = new Swift();
+	
+	ptr -> start() // Swift started
+	
+	return 0;
+}
+
+*Types of classes
+1. Base class - all concrete functions - reusability
+2. Base class - some concrete + some pure - reusability & polymorphism
+3. Base class - all pure virtual - polymorphism / also called interface
+
+* friend function  - to access all members of base class 
+
+Data hiding is a fundamental concept of object-oriented programming. 
+It restricts the access of private members from outside of the class.
+
+Similarly, protected members can only be accessed by derived classes and are inaccessible from outside. 
+
+However, there is a feature in C++ called friend functions that break this rule and 
+allow us to access member functions from outside the class.
+
+Similarly, there is a friend class as well, which we will learn later in this tutorial.
+
+A friend function can access the private and protected data of a class. 
+We declare a friend function using the friend keyword inside the body of the class.
+
+class My{
+	private: int a;
+	protected: int b;
+	public: int c;
+	
+	friend void fun();
+		
+};
+
+int main(){
+
+	void fun(){
+		My m;
+		m.a = 10;
+		m.b = 15;
+		m.c = 20;
+	}
+
+	return 0;
+}
+
+
+* friend class
+When a class is declared a friend class, all the member functions of the friend class become friend functions.
+
+However, we cannot access members of Class Your from inside Class My.
+
+It is because friend relation in C++ is only granted, not taken.
+
+class My{
+	private: int a;
+
+	
+	friend void fun();
+	friend Your;
+		
+};
+
+class Your{
+	public: 
+	My m;
+	
+	void fun(){
+		m.a = 10;
+		m.b = 15;
+		m.c = 20;
+	}
+
+};
+
+*Static members
+We can define class members static using static keyword. 
+When we declare a member of a class as static it means no matter how many objects of the class are created, 
+there is only one copy of the static member.
+
+A static member is shared by all objects of the class. 
+All static data is initialized to zero when the first object is created, 
+if no other initialization is present. 
+We can't put it in the class definition but it can be initialized outside the class 
+as done in the following example by redeclaring the static variable, 
+using the scope resolution operator :: to identify which class it belongs to.
+
+
+class Test{
+	public:
+		int a;
+		static int count;
+		
+		Test(){
+			int a = 10;
+			count++;
+		}
+		
+		static int getCount() {
+			return count;
+		}
+};
+
+int Test::count = 0;
+
+int main(){
+	Test t1, t2;
+	
+	cout << Test::getCount() << endl; //2
+	
+	return 0;
+}
+
+*Inner & outer classes
+class Outer{
+	public:
+	
+		class Inner{
+			public:
+				void fun(){
+				cout << "Display of inner" << inner;
+				}
+		};
+	
+		Inner i;
+		
+		void fun(){
+			i.display()
+		}
+};
+
+int main(){
+	
+	Outer::fun();
+	
+	return 0;
+}
+
+*Exception Handling
+Exception handling in C++ consist of three keywords: try, throw and catch:
+
+The try statement allows you to define a block of code to be tested for errors while it is being executed.
+
+The throw keyword throws an exception when a problem is detected, which lets us create a custom error.
+
+The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+The try and catch keywords come in pairs:
+
+e.g - invalid_argument, out_of_range, run_time_error, overflow_error, underflow_error
+
+
+*Types of errors
+1. Syntax - Compiler
+2. Logic - Debugger
+3. Runtime - bad user input, resourse problem
+
+Write catch block first for child then parent class - ALWAYS
+
+
+int main(){
+
+	int a=10, b=0, c;
+
+	try{
+		if (b==0)
+			throw 101;
+		c = a/b;
+		cout << c;
+	}
+	catch(int e)
+	{
+		cout << "Division by zero error: " << "error code " << e << endl;
+	}
+	catch(...)
+	{
+		cout << "All catch" << endl;
+	}
+	cout << "bye";
+
+	return 0;
+};
+
+*Templates
+template <class T>
+T max(T x, T y){
+	if (x > y)
+		return x
+	else
+		return y 
+		
+template <class T, class T>     
+T add(T x, T y){
+		return x + y
+ }
+ 
+*Constant
+ # define x 10         // symbolic constant
+ const int x = 10;    // constant identifier
+
+*Preprocessor directives / Macros
+The preprocessors are the directives, 
+which give instructions to the compiler to preprocess the information before actual compilation starts.
+
+All preprocessor directives begin with #, 
+and only white-space characters may appear before a preprocessor directive on a line. 
+Preprocessor directives are not C++ statements, so they do not end in a semicolon (;).
+
+You already have seen a #include directive in all the examples. 
+This macro is used to include a header file into the source file.
+
+There are number of preprocessor directives supported by C++ like #include, #define, #if, #else, #line, etc.
+
+Used for defining value, expression, file inclusion
+
+# define PI 3.14159
+# define c cout 
+# define SQR(x) (x*x)
+
+# ifndef
+	define PI 3.14159
+#endif
+
+*Namespaces
+ namespace is a declarative region that provides a scope to the identifiers 
+ (the names of types, functions, variables, etc) inside it. 
+ Namespaces are used to organize code into logical groups and 
+ to prevent name collisions that can occur especially when your code base includes multiple libraries. 
+ All identifiers at namespace scope are visible to one another without qualification.
+
+
+
+namespace First{
+	void fun(){
+		cout << "First" << endl;
+	}
+}
+
+namespace Second{
+	void fun(){
+		cout << "First" << second;
+	}
+}
+
+using namespace First;
+
+int main(){
+	
+	fun();
+	Second::fun();
+	
+	return 0;
+}
+
+*Destructor
+class Test{
+	Public:
+		int * p;
+		fstream file;
+		
+		Test(){ 
+		p = new int[10];
+		file.open("my.txt");
+		}
+		~Test(){ 
+		delete []p;
+		file.close();
+		}	
+};
+
+child D - parent D;
+
+*File handling
+#include <fstream>
+
+ofstream outfile("my.txt");
+ofstream outfile("my.txt", ios::append);
+outfile << "Hello World" << endl;
+outfile << 25 << endl;
+outfile.close()
+
+ifstream infile;
+infile.open("my.txt")
+if(! infile)
+	cout << "file can not be open";
+string str;
+int n;
+infile >> str;
+infile >> n;
+cout << str << " " << n;
+if(infile.eof())
+	cout << "End of file is reached";
+infile.close()
+
+*operator overloading
+In C++, we can change the way operators work for user-defined types like objects and structures. 
+This is known as operator overloading.
+
+We cannot use operator overloading for fundamental data types like int, float, char and so on.
+
+Two operators = and & are already overloaded by default in C++. 
+
+For example, to copy objects of the same class, we can directly use the = operator. 
+
+We do not need to create an operator function.
+
+Operator overloading cannot change the precedence and associativity of operators. 
+However, if we want to change the order of evaluation, parentheses should be used.
+
+There are 4 operators that cannot be overloaded in C++. They are:
+
+    :: (scope resolution)
+    . (member selection)
+    .* (member selection through pointer to function)
+    ?: (ternary operator)
+
+
+ofstream & operator<<(ofstream &ofs, Student &s){
+	ofs << s.name <<endl;
+	ofs << s.roll <<endl;
+	ofs << s.branch <<endl;
+	return ofs;
+}
+
+ifstream & operator>>(ifstream &ifs, Student &s){
+	ifs >> s.name >> s.roll >> s.branch;
+	return ofs;
+}
+
+void operator++(){ ++value;}  // value is a private data member
+void operator++(int){ value++;}  // value is a private data member
+
+Class count1; ++count1
+Class count1; count1++
+
+Check operator ++ (int)
+    {
+        Check temp;
+        temp.i = i++;
+        return temp;
+    }
+
+*STL - 
+*Data structure - stack, queue, deque, priority queue, map, set 
+
+*Algorithms - search(), sort(), binary_search(), reverse(), concat(), copy(), union(),  intersection(), merege, heap()
+
+*Containers - 
+1. vector
+push_back(), pop_back(), insert(), remove(), size(), empty()
+
+2. list
+3. forward list
+4. deque
+front(), back(), push_front(), pop_front()push_back(), pop_back(), insert(), remove(), size(), empty()
+
+5. priority queue
+6. stack
+push(), pop(), size(), empty()
+
+7. map /multi-map / hash table / 
+<key, value> pair
+
+*Iterators - 
+
+*Array
+int A[10]; // stack
+int *A = new int[10] // heap
+A = new int[20]
+
+*Vector
+#include<vector>
+
+int main(){
+
+	vector<int> v = {1,2,3,4,5};
+	v.push_back(25);
+	v.pop_back();
+	
+	for(auto x : A){
+		cout << x;
+	}
+	
+	vector<int>::iterator it;
+	
+	for(itr= v.begin(); itr != v.end(); it++){
+		cout << *it;
+	}
+
+	return 0;
+}
+
+
+*List
+#include<list>
+
+int main(){
+
+	list<int> v = {1,2,3,4,5};
+	v.push_back(25);
+	v.push_back(40);
+	
+	for(auto x : A){
+		cout << x;
+	}
+	
+	list<int>::iterator it;
+	
+	for(itr= v.begin(); itr != v.end(); it++){
+		cout << *it;
+	}
+
+	return 0;
+}
+
+*Forward List
+#include<list>
+
+int main(){
+
+	forward_list<int> v = {1,2,3,4,5};
+	v.push_back(25);
+	v.push_back(40);
+	
+	for(auto x : A){
+		cot << x;
+	}
+	
+	forward_list<int>::iterator it;
+	
+	for(itr= v.begin(); itr != v.end(); it++){
+		cout << *it;
+	}
+
+	return 0;
+}
+
+*Set
+#include<set>
+
+int main(){
+
+	set<int> v = {1,2,3,4,5};
+	v.insert(25);
+	v.insert(40);
+	
+	for(auto x : A){
+		cout << x;
+	}
+	
+	forward_list<int>::iterator it;
+	
+	for(itr= v.begin(); itr !- v.end(); it++){
+		cout << *it;
+	}
+
+	return 0;
+}
+
+*Map
+#include<map>
+
+int main(){
+
+	map<int, string> m;
+	m.insert(pair<int, string>(1, "john"));
+	m.insert(pair<int, string>(2, "ram"));
+	m.insert(pair<int, string>(3, "shiva"));
+	
+	map<int, string>::iterator it;
+	
+	for(itr= m.begin(); itr != m.end(); it++){
+		cout << it -> first << " " << it -> second << endl;
+	}
+
+	return 0;
+}
+
+*lambda functions
+In C++11 and later, a lambda expression—often called a lambda—
+is a convenient way of defining an anonymous function object (a closure) 
+right at the location where it's invoked or passed as an argument to a function.
+
+
+[capture list](parameter_list){body}
+
+int main(){
+
+	[](){cout << "Hello" << endl;}; // Hello
+	
+	[](int x, inty){cout << "Sum: " << x + y << endl;}(10, 5) // Sum is 15
+	
+	cout << ([](int x, int y){return x + y;}(10, 5)); // 15
+	
+	int a = [](int x, int y)->int{return x + y;}(10, 30);
+	cout << a;
+	
+	int b = 10;
+	[b](){cout << b << endl;}();  // 10
+	
+	int c = 10;
+	auto f = [c](){cout << c << endl;}();  // 10
+	f();
+	
+	auto f = [&c](){cout << c << endl;}();  // 10
+	f();
+	c++;
+	f();
+ 
+	return 0;
+}
+
+*Smart pointers
+1. unique_ptr - 
+2. shared_ptr
+3. weak_ptr
+
+*Data Types and size in bytes
+1. char - character - 1
+2. wchar_t - wide character - 2
+3. char16_t - unicode character - 2
+4. char32_t - unicode character - 4
+
+5. short - short int - 2
+6. int  - integer - 4
+7. long - long int - 8
+8. long long - very long int - 8 
+
+9. float - single precision - 4
+10. double - double precision - 8
+11. long double - double precision - 8 / 10  
+
+12. bool - boolean - undefined 
+
+*Compliments
+number - ~number (1's complement) - invert 0 to 1and 1 to 0
+~number + 1 - (2's complement) 
+
+*size
+sizeof(x) - gives size in bytes
+char - 1
+CHAR_MIN = -128
+CHAR_MAX - 127
+UCHAR_MAX - 255
+
+*Variables and literals
+int day = 1;
+int day(1);
+int day = (0);
+int day{0};
+int day = {10};
+
+float p = 12.5;
+float p = 12.5678f;
+double p = 12.567899L;
+
+char s = 'A';
+char s = 65;
+
+*Overflow
+Overflow is a phenomenon where operations on 2 numbers exceeds the maximum 
+(or goes below the minimum) value the data type can have. 
+
+Usually it is thought that integral types are very large and 
+people don't take into account the fact that sum of two numbers can be larger than the range.
+
+Division and modulo can never generate an overflow.
+
+Addition overflow:
+Overflow can only occur when sign of numbers being added is the same 
+(which will always be the case in unsigned numbers)
+
+signed overflow can be easily detected by seeing that its sign is opposite to that of the operands.
+
+*Underflow
+The term arithmetic underflow (also floating point underflow, or just underflow) 
+is a condition in a computer program where the result of a calculation is 
+a number of more precise absolute value than 
+the computer can actually represent in memory on its central processing unit (CPU).
+
+Arithmetic underflow can occur when the true result of a floating point operation is smaller in magnitude 
+(that is, closer to zero) than the smallest value representable as a normal floating point number 
+in the target datatype.[1] 
+
+Underflow can in part be regarded as negative overflow of the exponent of the floating point value. 
+
+For example, if the exponent part can represent values from −128 to 127, 
+then a result with a value less than −128 may cause underflow.
+
+Explicit 
+Explicit Keyword in C++ is used to mark constructors to not implicitly convert types in C++. 
+It is optional for constructors that take exactly one argument and work on constructors(with a single argument) 
+since those are the only constructors that can be used in typecasting.

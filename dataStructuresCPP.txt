@@ -1,0 +1,766 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include "String.h"
+
+
+int main()
+{
+  using StringType = String;
+
+  StringType s1{}; // default constructor
+
+  StringType s2{ "Sagar" }; // parametrized c'tor
+
+  StringType s3 = s2; // copy c'tor
+
+  s2[0] = 'D';
+  auto sz = s3.size(); // getter
+
+  s3 = "Harshal"; // copy assignment
+
+  
+  for (auto ch : s3) // ranged based for using begin & end
+    std::cout << ch << ' ';
+  std::cout << '\n';
+  
+
+  auto pos = s3.find('a'); // find a char
+
+  
+  auto it = s3.begin(); // iterator
+  ++it;
+  std::cout << *it << '\n';
+  
+
+  std::cout << s3[2] << '\n';
+
+  std::vector<String> strings{ "Sagar", "Harshal", "Ajinkya" };
+
+  for (auto elm : strings)
+    std::cout << elm[0] << '\n';
+  return 0;
+}
+
+//******************************************************************
+//string.hpp
+#pragma once
+#include <iostream>
+#include <cstring>
+
+
+class String
+{
+public:
+  String(); // default c'tor
+  String(const char* data); // parametrized c'tor
+  String(size_t n, char c);
+
+  String(const String& other); // copy c'tor // 1. pass by value 2. return by value 3. copy initialization
+  String& operator=(const String& rhs); // copy assignment
+
+  //String(String&& other); // move c'tor
+  //String& operator=(String&& rhs); // move assignment
+
+  ~String(); // d'tor
+
+  //size_t npos = -1 ;
+public:
+  size_t size() const;
+  size_t find(char c) const;
+
+  char& operator[](size_t pos);
+
+private:
+  size_t m_size; // to store number of chars
+  char* m_data; // to store chars data
+};
+
+//********************
+// string.cpp
+#include "String.h"
+
+String::String()
+  : m_size{ 0 },
+  m_data{ nullptr } // cost initialization && reference initialization
+{
+  puts("Default c'tor String::String()");
+  // assignment happens here not initialization !
+}
+
+String::String(size_t n, char c)
+  :
+  m_size{ n },
+  m_data{ nullptr }
+{
+  m_data = new char[m_size + 1];
+
+  if (m_data != nullptr)
+  {
+    for (size_t i = 0; i < m_size; ++i)
+    {
+      m_data[i] = c;
+    }
+    m_data[n - 1] = '\0';
+  }
+}
+
+String::String(const char* data) : m_size{ std::strlen(data) }, m_data{ nullptr }
+{
+  puts("Parametrized c'tor String::String()");
+  
+  m_data = new char[m_size + 1];
+
+  if (m_data != nullptr)
+  {
+    strcpy_s(m_data, m_size + 1, data);
+  }
+}
+
+String::String(const String& other): m_size{ other.m_size }, m_data{ nullptr }
+{
+  puts("String::Copy C'tor");
+  m_data = new char[m_size + 1];
+
+  if (m_data != nullptr)
+  {
+    strcpy_s(m_data, m_size + 1, other.m_data);
+  }
+}
+
+String& String::operator=(const String& rhs)
+{
+  puts("String::Assignment operator");
+
+  // self assignment
+  if (this == &rhs)
+    return *this;
+  
+  // clear existing data
+  if (m_data != nullptr)
+  {
+    delete[] m_data;
+    m_size = 0;
+  }
+
+  // copy data from rhs variable
+  this->m_size = rhs.m_size;
+  m_data = new char[m_size + 1];
+
+  if (m_data != nullptr)
+  {
+    strcpy_s(m_data, m_size + 1, rhs.m_data);
+  }
+
+  // return ref to self
+  return *this;
+}
+
+String::~String()
+{
+  if (m_data != nullptr)
+  {
+    delete[] m_data;
+    m_size = 0;
+  }
+  puts("D'tor");
+}
+
+char& String::operator[](size_t pos)
+{
+  if (m_data != nullptr && pos < m_size)
+    return m_data[pos];
+  else
+    throw std::out_of_range("out of range");
+}
+
+size_t String::size() const
+{
+  return m_size;
+}
+
+size_t String::find(char c) const
+{
+  size_t pos = -1;
+  for (size_t i = 0; i < m_size; ++i)
+  {
+    if (c == m_data[i]) {
+      pos = i;
+      break;
+    }
+  }
+  return pos;
+}
+//******************************************************
+// polygon.hpp
+#pragma once
+#include <cmath>
+#include <iostream>
+
+class Polygon
+{
+public:
+  virtual ~Polygon() = default;
+  virtual double getPerimeter() const = 0;
+  virtual double getArea() const = 0;
+};
+
+class Triangle : public Polygon
+{
+  double m_s1;
+  double m_s2;
+  double m_s3;
+
+public:
+  Triangle(double s1 = 1.0, double s2 = 1.0, double s3 = 1.0)
+    : Polygon{},
+      m_s1{ s1 }, // side 1
+      m_s2{ s2 }, // side 2
+      m_s3{ s3 }  // side 3
+  {
+    puts("Triangle::C'tor");
+  }
+
+  virtual ~Triangle()
+  {
+    puts("Triangle::D'tor");
+  }
+
+  virtual double getPerimeter() const override
+  {
+    return m_s1 + m_s2 + m_s3;
+  }
+
+  virtual double getArea() const override
+  {
+    auto s = getPerimeter() / 2.0;
+    return sqrt(s * (s - m_s1) * (s - m_s2) * (s - m_s3));
+  }
+};
+
+
+class Rectangle : public Polygon
+{
+  double m_width;
+  double m_length;
+
+public:
+  Rectangle(double s1 = 1.0, double s2 = 1.0)
+    : Polygon{},
+    m_width{ s1 }, // side 1
+    m_length{ s2 } // side 2
+  {
+    puts("Rectangle::C'tor");
+  }
+
+  virtual ~Rectangle()
+  {
+    puts("Rectangle::D'tor");
+  }
+
+  virtual double getPerimeter() const override
+  {
+    return 2 * (m_width + m_length);
+  }
+
+  virtual double getArea() const override
+  {
+    return m_width * m_length;
+  }
+};
+
+class Square : public Rectangle
+{
+
+public:
+  Square(double s = 1.0)
+    : Rectangle{s, s}
+  {
+    puts("Square::C'tor");
+  }
+
+  virtual ~Square()
+  {
+    puts("Square::D'tor");
+  }
+
+  virtual double getPerimeter() const override
+  {
+    return Rectangle::getPerimeter();
+  }
+
+  virtual double getArea() const override
+  {
+    return Rectangle::getArea();
+  }
+};
+//****************
+polygon.cpp
+#include "Polygon.h"
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
+int main()
+{
+  vector<Polygon*> shapes{};
+
+  for (size_t i = 1; i <= 3; ++i)
+  {
+    Polygon* shape{ nullptr };
+
+    if (i == 1)
+      shape = new Triangle{ 10, 20, 30 };
+    else if (i == 2)
+      shape = new Rectangle{ 10, 15 };
+    else
+      shape = new Square{ 10 };
+
+    shapes.push_back(shape);
+  }
+
+  for (auto shape : shapes)
+  {
+    std::cout << "Perimeter: " << shape->getPerimeter() << '\n';
+    std::cout << "Area: " << shape->getArea() << '\n';
+  }
+
+  for (auto shape : shapes)
+  {
+    delete shape;
+  }
+
+  return 0;
+}
+//******************************************************************
+// wordcounter.cpp
+#include <iostream>
+#include <fstream>
+#include <map>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+  std::ifstream inFile{ "C:\\Sagar\\words.txt" };
+
+  if (inFile.is_open())
+  {
+    std::string word{ "" };
+    std::map<std::string, size_t> wordFreq{};
+
+    while (inFile >> word)
+      wordFreq[word]++;
+
+    std::string path{ "C:\\Sagar\\words_freq.txt" };
+    std::ofstream outFile{ path, std::ios::in };
+
+    if (outFile.is_open())
+    {
+      for (const auto& [word, freq] : wordFreq)
+        outFile << word << ':' << freq << '\n';
+      outFile.close();
+    }
+    
+
+    inFile.close();
+  }
+
+  return 0;
+}
+
+//*****************************************************
+//vector
+#pragma once
+#include <stdexcept>
+
+template<typename Type>
+class Vector
+{
+  size_t m_size;
+  size_t m_capacity;
+  Type* m_data;
+
+public:
+  Vector() :
+    m_size{ 0 },
+    m_capacity{ 0 },
+    m_data{ nullptr }
+  {
+
+  }
+
+  Vector(size_t size, Type data = {}) :
+    m_size{ size },
+    m_capacity{ 2 * size + 1 },
+    m_data{ new Type[m_capacity] }
+  {
+    for (size_t i = 0; i < m_size; i++)
+      m_data[i] = data;
+  }
+
+  ~Vector()
+  {
+    if (m_data) {
+      delete[] m_data;
+      m_data = nullptr;
+      m_size = 0;
+      m_capacity = 0;
+    }
+  }
+  
+  /*
+  * 1. Copy initialization e.e Vector<int> v2 = v1;
+  * 2. Passed to func by value e.g Func(vec); void Fun(Vector<int> arg);
+  * 3. return by value Vector<int> getMyVector();
+  */
+  Vector(const Vector& other)
+    : m_size{ other.m_size },
+      m_capacity{ other.m_capacity }
+  {
+    m_data = new Type[m_capacity];
+
+    for (size_t i = 0; i < other.m_size; i++)
+      m_data[i] = other.m_data[i];
+
+  }
+
+  /*
+  * On assignment vec2 = vec1;
+  */
+  Vector& operator=(const Vector& other)
+  {
+    if (this == &other)
+      return *this;
+
+    Vector<Type> tempObj = other;
+
+    std::swap(m_size, tempObj.m_size);
+    std::swap(m_capacity, tempObj.m_capacity);
+    std::swap(m_data, tempObj.m_data);
+
+    return *this;
+  }
+  
+  void reserve(size_t newCapacity)
+  {
+    if (newCapacity < m_capacity)
+      return;
+
+    Type* tempData = new Type[newCapacity];
+    m_capacity = newCapacity;
+
+    for (size_t i = 0; i < m_size; i++) // copy existing data if any
+      tempData[i] = m_data[i];
+
+    std::swap(m_data, tempData);
+
+    delete[] tempData;
+  }
+
+public:
+
+  inline size_t size() const { return m_size; }
+  inline size_t capacity() const { return m_capacity; }
+  inline bool empty() const { return m_size == 0; }
+
+  void push_back(Type data)
+  {
+    if (m_size == m_capacity)
+      reserve(2 * m_capacity + 1);
+
+    m_data[m_size++] = data;
+  }
+
+  void pop_back()
+  {
+    if (!empty())
+      --m_size;
+    else
+      throw std::out_of_range("Vector is empty");
+  }
+
+  const Type& operator[](size_t pos) const
+  {
+    if (pos < m_size)
+      return m_data[pos];
+    else
+      throw std::out_of_range("out of range");
+  }
+
+  Type& operator[](size_t pos)
+  {
+    if (pos < m_size)
+      return m_data[pos];
+    else
+      throw std::out_of_range("out of range");
+  }
+};
+//******************
+void VectorTest()
+{
+  Vector<int> vec{}; // vec is Vector of integers
+
+  // add few items to vec
+  for (int i = 1; i <= 5; i++)
+    vec.push_back(i * 10);
+
+  vec.push_back(20);
+
+  vec.reserve(10);
+  std::cout << "vec[5]: " << vec[5] << '\n';
+
+  vec.pop_back();
+ 
+  Vector<int> vec2 = vec; // vec2 is copy initializated from vec | copy c'tor
+
+  vec[0] = 7878;
+
+  std::cout << "vec2[0]: " << vec2[0] << '\n';
+
+  Vector<int> vec3{}; // vec3 is Vector of integers
+  vec3 = vec2; // vec3 is assignmned from vec2 | copy assignment op
+
+  std::cout << "vec3[0]: " << vec3[0] << '\n';
+
+  vec2[0] = 500;
+
+  std::cout << "vec3[0]: " << vec3[0] << '\n';
+
+  for (size_t i = 0; i < vec.size(); i++)
+  {
+    std::cout << "vec[" << i << "]: " << vec[i] << '\n';
+  }
+}
+//******************************************************
+// linked list.hpp
+#pragma once
+
+template<typename Type>
+class LinkedList
+{
+  template<typename T>
+  struct Node
+  {
+    T m_data;
+    Node* m_next;
+
+    Node(T data = T{}, Node* next = nullptr) : m_data{ data }, m_next{ next }
+    {}
+  };
+
+private:
+  size_t m_size;
+  Node<Type>* m_head;
+
+public:
+
+  LinkedList() : m_size{ 0 }, m_head{ nullptr }{}
+  ~LinkedList()
+  {
+    clear();
+  }
+
+  /*
+  LinkedList(const LinkedList& other): m_size{ other.m_size }, m_head{ nullptr }
+  {
+
+  }
+  */
+
+
+public:
+
+  void clear()
+  {
+    Node<Type>* curr = m_head;
+
+    while (curr)
+    {
+      m_head = m_head->m_next;
+      delete curr;
+      curr = m_head;
+      --m_size;
+    }
+  }
+
+  void push_back(Type data)
+  {
+    if (empty()) {
+      push_front(data);
+      return;
+    }
+
+    Node<Type>* newNode = new Node<Type>{ data };
+
+    Node<Type>* curr = m_head;
+
+    // traverse till end
+    while (curr->m_next)
+      curr = curr->m_next;
+    
+    curr->m_next = newNode;
+    ++m_size;
+  }
+
+  void pop_back()
+  {
+    Node<Type>* curr = m_head;
+    Node<Type>* prev = m_head;
+
+    while (curr->m_next) {
+      prev = curr;
+      curr = curr->m_next;
+    }
+
+    prev->m_next = nullptr;
+    delete curr;
+    curr = nullptr;
+    --m_size;
+  }
+
+  void pop_front()
+  {
+    Node<Type>* curr = m_head;
+    m_head = m_head->m_next;
+    delete curr;
+    curr = m_head;
+    --m_size;
+  }
+
+  void push_front(Type data)
+  {
+    Node<Type>* newNode = new Node<Type>{ data, m_head };
+    m_head = newNode;
+    ++m_size;
+  }
+
+  bool empty() const { return m_size == 0; }
+
+  void reverse()
+  {
+    Node<Type>* curr = m_head;
+    Node<Type>* prev = nullptr;
+
+    while (curr)
+    {
+      auto next = curr->m_next;
+      curr->m_next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    m_head = prev;
+  }
+
+  void print()
+  {
+    Node<Type>* curr = m_head;
+
+    while (curr)
+    {
+      std::cout << curr->m_data << ' ';
+      curr = curr->m_next;
+    }
+
+    std::cout << '\n';
+  }
+};
+//*******************************************
+// linked list.cpp
+void LinkedListTest()
+{
+  LinkedList<int> listObj{};
+
+  for (int i = 1; i <= 5; i++)
+    listObj.push_back(i * 10);
+
+  puts("list..");
+  listObj.print();
+
+  puts("After reverse list..");
+  listObj.reverse();
+  listObj.print();
+}
+//*******************************************************************
+// queue
+template<typename Type>
+class Queue
+{
+  std::list<Type> m_queue;
+
+public:
+  Queue() = default;                              // default c'tor
+  ~Queue() = default;                             // default d'tor
+
+  Queue(const Queue&) = default;                  // copy c'tor
+  Queue& operator=(const Queue&) = default;       // copy assignment operator
+
+  Queue(Queue&&) noexcept = default;              // move c'tor
+  Queue& operator=(Queue&&) noexcept = default;   // move assignment operator
+
+public:
+  void push(Type data)
+  {
+    m_queue.push_back(data);
+  }
+
+  void pop()
+  {
+    m_queue.pop_back();
+  }
+
+  Type front()
+  {
+    return m_queue.front();
+  }
+
+  Type back()
+  {
+    return m_queue.back();
+  }
+
+  inline size_t size() const { return m_queue.size(); }
+};
+//*******************************************************
+// stack
+using namespace std;
+
+class Stack {
+public:
+	list<int> items;
+
+	string is_empty() {
+		return items.size() == 0 ? "True" : "False";
+	}
+
+	void push(int i) {
+		items.push_back(i);
+	}
+
+	void pop() {
+		items.pop_back();
+	}
+
+	int peek() {
+		return items.back();
+	}
+
+	int size() {
+		return items.size();
+	}
+
+	void print_items()
+	{
+		cout << "\nPrinting Stored Stack Elements: " << endl;
+		for (auto i : items) {
+			cout << i << endl;
+		}
+	}
+
+};
+//************************************************************

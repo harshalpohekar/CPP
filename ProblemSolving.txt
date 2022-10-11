@@ -1,0 +1,3802 @@
+some compilers supports void main and some compilers int main. Mostly int main() is used.
+
+return 0; means program has terminated successfully.
+
+C++ supports namespaces. All built-in functions and object are included in namespace.
+
+# is used as preprocessor directive.
+#include will ask the compiler to include the header file.
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string str;
+	cout << "\nEnter your name: " << endl;
+	cin >> str;
+	cout << "\nWelcome " << str;
+
+	return 0;
+}
+
+cin.ignore() is used for clearing buffer.
+
+getline(cin,name);
+
+endl is used for giving new line in output.
+
+variables are names given to values.
+variable of a class is called as object.
+
+string name=“Smith”;
+name is a variable of type string.
+string is a class in C++. So name is an object.
+
+For using sqrt() you have to include header file using any one method.
+1. #include<cmath>
+2. #include<math.h>
+
+The data type of an expression will be same as the largest data type use in
+expression.
+
+If you want to change the data type of result of expression use type casMng.
+
+Type casting
+z=(float)x/y; //then result will be obtained in float
+
+Following condi+on must be true to get real values of quadratic equation,
+b^2-4*a*c>=0
+
+Operators
+• Various types of operators are supported by C++
+• They are categorised as
+• unary
+• binary
+• ternary
+• Each operator has its precedence and associativity
+• Higher precedence operators are executed first
+
+Expression
+• Expression contains operands and operator
+• Expressions results in a single value
+• datatype of result of expression is the largest datatype used in expression
+
+Compound Arithmetic Operators
+int main()
+{
+	int sum = 10, x = 5;
+	sum += 5;
+	cout << sum << endl;
+	
+	int fact = 10, x = 5;
+	fact *= 5;
+	cout << fact << endl;
+	return 0;
+}
+
+Root of quadratic equations
+#include <math.h>
+
+int main()
+{
+	int a, b, c;
+	float root1, root2;
+	
+	cout << "Enter 3 values: " << endl;
+	cin >> a >> b>> c;
+	
+	root1 = (-b + sqrt(b*b - 4*a*c))/ (2*a);
+	root2 = (-b - sqrt(b*b - 4*a*c))/ (2*a);
+	
+	cout << root1 << root2 << endl;
+	
+	return 0;
+}
+
+Area of circle
+int main()
+{
+	float rad, area;
+	
+	cout << "Enter the area: " <<endl;
+	cin >> rad;
+	
+	area = 3.14159 * rad * rad;
+	
+	cout << "Area is: " << area << endl;
+	return 0;
+}
+
+If you write a decimal value in program, like 3.57 then it is considered as double
+To make it float f should be used. Like 3.57f
+
+Compound Assignment works with Arithmetic and Bitwise operators.
+These are use for writing simple and easy to read statements.
+If the statement is sum=sum+x;
+same statement can be written as sum+=x;
+
+temp+=x;
+temp-=x;
+temp*=x;
+temp/=x;
+temp%=x;
+temp<<=x;
+temp>>=x;
+
+Mul$ple ++ should not be sued on a same variable inside single expression. 
+The result will be unpredictable. The result is dependent on compiler.
+
+Negative numbers are in 2’s Compliment form. Let last bit will be always 1, 2’s comp = 1’s comp + 1
+
+~ Operator
+Operator will invert the bits of a variable
+char x=5
+Binary form is 0000 0101
+x=~x will be 1111 1010
+Left most bit is 1 so it is a negative number
+Finding the value of 1111 1010
+1’s compliment will be 0000 0101
+2’s compliment will be 0000 0110 = 6
+Therefor 1111 1010 is a -6
+
+Bitwise operators don’t work on float
+Bitwise operators works only on int and char type
+
+Net salary
+
+inr main()
+{
+	float basic, percentAllow, precentDeduct, netSalary;
+	
+	cout << "Basic Salary: " << endl;
+	cin >> basic;
+	
+	cout << "percentAllow: " << endl;
+	cin >> percentAllow;
+	
+	cout << "precentDeduct: " << endl;
+	cin >> precentDeduct;
+	
+	netSalary = basic + basic*percentAllow/100 - basic*precentDeduct/100;
+	
+	cout << netSalary << endl;
+	
+	return 0;
+}
+
+Conditional Statements
+• If and else is used for writing conditional statement
+• If condition is true then if block is executed
+• If condition is false then else block is executed
+• 0 - means false
+• 1- means true or non0zero value is also true
+If can be nested inside if as well as else statement
+Nesting of is is also written as else-if ladder
+
+True vs False
+In C++ true and false are defined as
+0 means False
+Another value is True. It may be 1 ,2 ,10, 1.5, 100 etc.
+
+ASCII codes
+Characters in C++ are represented using inter codes called as ASCII
+codes.
+Character will actually store number. As it is declared as char, it
+represents characters.
+Every character you find on KeyBoard will have its ASCII codes
+ASCII codes for Capital letters range from A=65 to Z=90
+ASCII codes for Lower case letter range from a=97 to z=122
+Difference between Upper case and Lower case is 32
+Arithmetic operations can be performed on char. It will change
+ASCII code
+
+break vs return vs exit(0);
+break statement will stop the loop or switch case
+return statement will stop the function
+exit(0) will stop the program
+
+Block level Scope of Variable
+if a variable is declared inside a block, then it will be deleted from
+the memory at the end of block
+example:
+if() { int x; }
+while(){ int x; }
+int fun(){ int x; }
+
+switch case vs if-else
+If-else ladder will check multiple conditions and then execute the
+block if condition is true
+Switch statement will directly jump to the case block.
+If-else ladder is slow and switch is fast.
+Switch can be used only for checking single value. If-else can be
+used for checking range of values.
+
+break after default
+in switch case. for the last case or default, break is not necessary. It
+can be skipped
+
+Compound Conditional Statement
+
+int main()
+
+{
+	int age;
+	cout << "Enter the age: " << endl;
+	cin >> age;
+	
+	if (age>=12 && age<=50)
+	{
+		cout << "Young" << endl;
+	}else
+	{
+		cout << "Not young" << endl;
+	}
+	
+	if (age<12 || age>50)
+	{
+		cout << "Eligible for offer" << endl;
+	}else
+	{
+		cout << "Not eligible for offer" << endl;
+	}
+	
+	return 0;
+}
+
+Max of 3
+int main()
+{	
+	int a, b , c;
+	cout << "Enter 3 numbers: " << endl;
+	cin >> a >> b >> c;
+	
+	if(a > b && a >c)
+	{
+		cout << a << endl;
+	}else if (b > c)
+	{
+		cout << b << endl;
+	}else
+	{
+		cout << c << endl;
+	}
+
+	return 0;
+}
+
+Nature of roots
+int main()
+{
+	float a, b, c, d, r1, r2;
+	
+	cout << "Enter a, b , c: " << endl;
+	cin >> a >> b >> c;
+	
+	d = b*b - 4*a*c;
+	
+	if (d == 0)
+	{
+		cout << "roots are real and equal" << endl;
+		cout << -b / 2*a
+	}else id (d > 0)
+	{
+		cout << "roots are real and unequal: " << endl;
+		r1 = -b + sqrt(d) / (2*a);
+		r2 = -b - sqrt(d) / (2*a);
+	}else
+	{
+		cout << "roots are imaginery: " << endl;
+	}
+	
+	return 0;
+}
+
+Program to Demonstrate Short Circuit
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a=10,b=5,i=5;
+	if(a>b && ++i<=b)
+	{
+	}
+	cout<<i<<endl;
+	
+	if(a<b || ++i<=b)
+	{
+	}
+	cout<<i<<endl;
+}
+
+Switch
+• Switch is a branch and control statement
+• Switch can have 0 or more cases
+• Each case is defined with a label
+• Depending on the value of expression in switch corresponding case black is executed
+• Is a case block is not available then default block is executed
+• Default block is optional
+• Every case block must terminate with break
+• If breaks are not mentioned then cases will fall thru
+• Switch is used for menu-driven programs
+
+Switch case
+int manin()
+{
+	int day;
+	cout << "Enter day number: << endl;
+	cin >> day;
+	
+	switch(day)
+	{
+		case 1: 
+			cout << "monday" << endl;
+			break;
+		case 2: 
+			cout << "tuesday" << endl;
+			break;
+		default: 
+			cout << "invalid day" << endl;
+	}
+	return 0;
+}
+
+Discounted bill amount
+int main()
+{
+	float billAmount;
+	float discount = 0.0;
+	
+	cout << "Enter bill amount: " << endl;
+	cin >> billAmount;
+	
+	if(billAmount >= 500)
+		discount = billAmount * 20 /100;
+	else if(billAmount >= 100 && billAmount <= 500)
+		discount = billAmount * 10 /100;
+	
+	cout << billAmount << endl;
+	cout << discount << endl;
+	cout << billAmount - discount << endl;
+	
+	return 0;
+}
+
+Leap year
+int main()
+{
+	int year;
+	cout << "Enter a year: " << endl;
+	cin >> year;
+	
+	if(year % 4 == 0)
+	{
+		if(year % 100 == 0)
+		{
+			if(year % 400 == 0)
+			{
+				cout << year << "is a leap year" << endl;
+			}else
+			{
+				cout << year << "is not a leap year" << endl;
+			}
+		}else
+		{
+			cout << year << "is a leap year" << endl;
+		}
+	}else
+	{
+		cout << year << "is not a leap year" << endl;
+	}
+	
+	return 0;
+}
+
+
+Loops
+• Loops are iterative statements
+• Block of statements are repeatedly executed as long as condition is true
+• Condition given in loop must become false after some finite iterations otherwise its a
+infinite loop
+• Values used in condition must update inside the body of finite loop
+• Four types of loops
+••
+pre-tested loop while()
+• post-tested loop do..while()
+• counter controlled loop for()
+• for each loop for Collections for()
+
+while and for difference
+while is used when you don't know how many time you have to repeat, so
+repeat WHILE condition is true.
+for is used when you know FOR how many time you have to repeat.
+
+When to use which loop ?
+1. While and doWhile are similar, they are used when we don’t know
+number of times of repetitions
+2. For is used when we know the number of iterations.
+3. For each is used with array or STL.
+
+What should be used in for loop i++ or ++i ?
+Anyone can be used.
+++i; is known to be faster than i++;.
+
+Reason:
+i++; is same as i=i+1; here i+1 is evaluated and the result is
+stored in a temporary variable and then assigned to i.
+++i; here i+1 is not stored in a temporary variable, directly i is
+increased by 1
+
+Factorial for large numbers
+if the data type is taken long long then factorial will work upto 20!
+if you want beyond 20! then take a string and write own procedure
+to calculate factorial.
+
+Sum of natutal numbers
+int main()
+{
+	int n , sum = 0;
+	cout << "Enter n: " << endl;
+	cin >> n;
+	
+	for(int i=1; i < n; i++)
+	{
+		sum += i;
+	}
+	
+	int directSum = n * (n + 1) / 2;
+	
+	cout << sum << endl;
+	
+	cout << directSum << endl;
+	
+	return 0;
+}
+
+factorial
+int main()
+{
+	int n, fact;
+	cout << "Enter number: " << endl;
+	cin >> n;
+	
+	for(int i=1;i <=n; i++)
+	{
+		fact *= i;
+	}
+	
+	cout << fact << endl;
+	
+	return 0;
+}
+
+Factors of numbers
+int main()
+{
+	int n;
+	cout << "Enter number: " << endl;
+	cin >> n;
+	
+	for(int i=1; i <= n; i++)
+	{
+		if(n % i == 0)
+			cout << i << " ";
+	}
+	return 0;
+}
+
+Perfect number
+int main()
+{
+	int n, sum;
+	cout << "Enter number: " << endl;
+	cin >> n;
+	
+	for(int i=1; i <= n; i++)
+	{
+		if(n % i == 0)
+			sum += i;
+	}if (2 * n == sum)
+	{
+		cout << "Perfect number: " << endl;
+	}else
+	{
+		cout << "Not a perfect number: " << endl;
+	}
+	return 0;
+}
+
+sum of factors
+int main()
+{
+	int n, sum;
+	cout << "Enter number: " << endl;
+	cin >> n;
+	
+	for(int i=1; i <= n; i++)
+	{
+		if(n % i == 0)
+			sum += i;
+	}
+	
+	cout << sum << endl;
+	
+	return 0;
+}
+
+Prime number
+int main()
+{
+	int n, count;
+	cout << "Enter number: " << endl;
+	cin >> n;
+	
+	for(int i=1; i <= n; i++)
+	{
+		if(n % i == 0)
+			count++;
+	}if (count == 2)
+	{
+		cout << "Prime number: " << endl;
+	}else
+	{
+		cout << "Not a prime number: " << endl;
+	}
+	return 0;
+}
+
+armstrong number
+int main()
+{
+	int n, r, m, sum;
+	cout << "Enter the number: " << endl;
+	cin >> n;
+	m = n;
+	while(n>0)
+	{
+		r = n % 10;
+		n = n / 10;
+		sum += r*r*r;
+	}if (sum == m)
+	{
+		cout << "Armstrong number: " << endl;
+	}else
+	{
+		cout << "Not a armstrong number: " << endl;
+	}
+	
+	return 0;
+}
+
+reverse a number
+int main()
+{
+	int n, r, rev=0;
+	cout << "Enter a number: " << endl;
+	cin >> n;
+	
+	while(n>0)
+	{
+		r = n % 10;
+		n = n / 10;
+		rev = (rev*10)+ r;
+	}
+
+	cout << rev << endl;
+	
+	if (rev == n)
+	{
+		cout << "A palindrome : " << endl;
+	}else
+	{
+		cout << "Not a palindrome : " << endl;
+	}
+	
+	return 0;
+}
+
+GCD
+int main()
+{
+	int m, n;
+	cout << Enter two numbers: " << endl;
+	cin >> m >> n;
+	
+	while(m != n)
+	{
+		if(m > n)
+			m = m - n;
+		else
+			n = n - m;
+	}
+	cout << m << endl;
+	
+	return 0;
+}
+
+Arrays
+• Array is a collection of similar data elements under one name, each element is
+accessible using its index
+• Memory for array is allocated contagiously
+• For-each loop is used for accessing array
+• N-dimension arrays are supported by C++
+• Two-Dimensional Arrays are sued for Matrices
+• Array can be created in Stack or Heap Section of memory
+
+Variable Length Array
+What is variable sized Array??
+How to declared, initialise variable sized array?
+a variable-length array (VLA), also called variable-sized, runtimesized,
+whose length is determined at run time. It is created in stack.
+cin>>n;
+int A[n];
+This array is a dynamic sized array. Its size can be mentioned on once. It
+cannot be resized agin.
+
+Dynamic Array vs Variable Length Array
+Dynamic Array: created in Heap using pointer
+int *p=new int[n];
+Variable Sized Array: created in stack
+int A[n];
+Dynamic Array: size is dynamic, decided at run-time
+Variable Sized Array: size is dynamic, decided at run-time
+Dynamic Array: size can be change by creating new array
+int *p=new int[n];
+delete []p;
+p=new int[2*n];
+
+Variable Sized Array: once created, size cannot be changed.
+Dynamic Array: it can be used anywhere in the program, it
+address is available
+Variable Sized Array: useful for temporary purpose within a
+function.
+
+What is a garbage value?
+If you declare any variable then definitely it will have some value.
+that value is a garbage value.
+
+Duplicates in Search
+searching is done in unique list of elements.
+If there are duplicates we can’t perform search.
+If they are duplicates then you should look for all occurrences of a
+element.
+
+Middle element in Binary Search
+If there a even number of elements then what is mid?
+Example:
+List: 2 4 6 10 12 15 18 10
+List is having 8 elements then middle element will be 10
+l=0 and h=7
+mid=(l+h)/2 = (0+7)/2 = 3.5 = 3
+l and h are integers. We get floor value. 3
+
+What is INT_MAX?
+It is a maximum integer value. It is a predefined constant available
+in some compilers.
+For finding minimum number we initialise
+min=INT_MAX.
+If it is not available in your compiler then initialise min with first
+elements.
+min=A[0];
+
+2D array for each loop
+2D array can be considered as array of rows.
+If there is a 2D array
+int A[4][5];
+Method for accessing it using for each loop, is.
+for(auto &x:A) // here x represents a row of a 2D array. We cant declare it so take auto reference.
+{
+	for(int y:x)
+	{
+	cout<<y<<“ ”;
+	}
+}
+
+Sum of array elements
+int main()
+{
+	int A[5] = {1,2,3,4,5};
+	int n=5, sum = 0;
+	
+	for(int i=0; i < n; i++)
+	{
+		sum += A[i];
+	}
+	
+	cout << sum << endl;
+	
+	return 0;
+}
+
+maximum number of array
+
+int main()
+{
+	int A[5] = {1,2,3,4,5};
+	int n=5, max;
+	
+	for(int i=0; i < n; i++)
+	{
+		if(A[i] > max)
+			max = A[i];
+	}
+	
+	cout << max << endl;
+	
+	return 0;
+}
+
+Linear Search
+int main()
+{
+	int A[5];
+	int n=5, key;
+	
+	cout << "Enter a key to find: " << endl;
+	cin >> key;
+	
+	for(int i=0; i < n; i++)
+	{
+		cin >> A[i];
+	}
+	
+	for(int i=0; i < n; i++)
+	{
+		if(A[i] == key)
+			cout << "key found at" << i;
+			return 0;
+	}
+	cout << "Not found " << endl;
+	
+	return 0;
+}
+
+Binary Search
+int main()
+{
+	int A[10] = {10, 15, 7, 9, 30, 25, 26, 36, 47, 45};
+	
+	int low=0, high=9, mid, key;
+	cout << "Enter a key: " << endl;
+	cin >> key;
+	
+	while(low <= high)
+	{
+		mid = (low + high) / 2;
+		if(key == A[mid])
+		{
+			cout << key << "found at: " << mid;
+			return 0;
+		}else if (key < A[mid])
+		{
+			high = mid -1;
+		}else
+		{
+			low = mid + 1;
+		}	
+	}
+	cout << "Key is not found " << endl;
+
+	return 0;
+
+}
+
+Sum of numbers
+int main()
+{
+	float A[100], sum = 0.0, average;
+	int n;
+	
+	cout << "Enter number of elements: " << endl;
+	
+	for(int i=0; i < n; i++)
+	{
+		cin >> A[i];
+		sum += A[i];
+	}
+	
+	average = sum / n;
+	
+	cout << average << endl;
+
+	return 0;
+
+}
+
+Matrix Multiplication
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main()
+{
+	
+	int A[10][10], B[10][10], mult[10][10], r1, c1, r2, c2;
+	
+	cout << "Enter number of row and columns for matrix A" << endl;
+	cin >> r1 >> c1;
+	
+	cout << "Enter number of row and columns for matrix B" << endl;
+	cin >> r2 >> c2;
+	
+	for(int i=0; i < r1; i++)
+	{
+	    for(int j=0; j < c1; j++)
+	    {
+	        cout << "Enter element A " << i + 1 << j + 1 << " : " ;
+	        cin >> A[i][j];
+	    }
+	}
+	
+	for(int i=0; i < r2; i++)
+	{
+	    for(int j=0; j < c2; j++)
+	    {
+	        cout << "Enter element B " << i + 1 << j + 1 << " : ";
+	        cin >> B[i][j];
+	    }
+	}
+	
+	for(int i=0; i < r1; i++)
+	{
+	    for(int j = 0; j < c2; j++)
+	    {
+	        for(int k = 0; k < c1; k++)
+	        {
+	            mult[i][j] = A[i][k] * B[k][j];
+	        }
+	    }
+	}
+	
+	for(int i=0; i < r2; i++)
+	{
+	    for(int j=0; j < c2; j++)
+	    {
+	        cout << mult[i][j] << " ";
+	    }
+	    cout << endl;
+	}
+	
+	return 0;
+}
+
+What is the Size of a Pointer?
+A Pointer are declared using data type. But its size is not dependent
+on its data type.
+Purpose of data type is for pointer arithmetic. Not for size.
+
+In Present day compilers every pointer takes 8 bytes.
+int *p1;
+float *p2;
+double *p3;
+char *p4;
+struct Test *p5; // pointer to structure. (You will learn it later)
+Rectangle *p6; // pointer to an object. (You will learn it later)
+
+Declaring and Initialising Pointer.
+Example:
+int x=10; is a data variable.
+int *p=&x; p is a pointer and will be pointing on x. p is declared
+and initialised.
+
+int x=10; is a data variable.
+int *p; p is declared.
+p=&x; p is initialised. It will be pointing to x. * is used for
+declaration.
+
+What Is Meant By Dereferencing
+Dereferencing: Accessing the data present at the address where
+pointer is pointing.
+int x=10; x is a data variable
+int *p=&x; p is a pointer pointing to x
+cout<<*p; this will print the value of x. *p is dereferencing.
+
+Dynamic memory in Heap.
+What is Dynamic memory in Heap?
+Dynamic memory is created in Heap using pointers.
+We can use Dynamic memory for creating Array, Linked List, Trees, Map
+etc. (These are called as Data Structures)
+Heap memory can be accessed from anywhere in the program, if its
+address is available.
+Heap Memory can be used for storing data of entire application.
+
+Application of Dynamic memory?
+We take a example of Chrome browser and discuss from Chrome side..
+When we open chrome browser, it doesn’t know how many tabs user will
+open.
+It will keep the first tab ready with Google page open.
+
+Pages are downloaded from internet and kept in the memory of Chrome
+program.
+Downloaded page is kept in heap memory.
+When we open new tab then memory is created in heap for that page.
+When we close a tab the memory should be deleted, as it is not in use.
+
+Conclusion: we may be opening and closing many tabs.
+Chrome doesn’t know how many we will open.
+Chrome should allocate memory for the pages at runtime.
+It will allocate pages Dynamically in Heap memory and delete them when
+not required.
+
+Memory Leak: If a program like Chrome is allocating memory for tab but
+not deallocating it when tab is closed then it is called as Memory Leak
+
+Memory Leak
+If a program requires memory at runtime, it will allocate in Heap
+using pointer.
+If Heap memory is not in use, it should be deallocated.
+Memory Leak: If a program like Chrome is allocating memory for
+tab but not deallocating it when tab is closed, then it is called as
+Memory Leak.
+If a program is not deallocating then the memory reserved for Heap
+may become empty.
+
+Dangling Pointer
+If a pointer is having an address of a memory location which is
+already deallocated.
+example:
+int *p=new int[5];
+delete []p;
+Now p is a Dangling pointer.
+
+Stack:
+• all the variables we declare in a function are created in stack.
+• All variables are accessible only within that function.
+• Compiler can finalise the amount of memory required for all the
+variables.
+• When a function is called, memory is created in stack
+• When a function terminates, memory is deleted from stack.
+
+Heap:
+• pointer is used for allocating memory at runtime.
+• new operator is used for allocating memory in heap.
+• Heap memory should be allocated when required and deallocated when
+not in use.
+• Heap memory can be accessed by entire program if pointer is available.
+
+NULL vs nullptr
+NULL:
+•it is a constant whose value is 0.
+•NULL means, pointer is not pointing on any valid location.
+•In place of NULL, 0 can be used.
+•Using 0 I place of NULL may create confusion for programmer.
+
+nullptr
+•It is a keyword in C++.
+•nullptr means, pointer is not pointing on any valid location.(same
+as NULL)
+•Nullptr doesn’t mean 0.
+•0 cannot be used in its place.
+
+Address of Array
+Name of an array is the base address of an array
+Name itself acts as a pointer. Though it is a name, not a pointer. As
+it represents address, it act as a pointer.
+Example:
+int A[5]={2,4,6,8,10};
+int *p;
+p=A; // this will store the base address in p. It will be address of 2.
+p=&A;// this is invalid.
+p=&A[3]; // this will store the address of 8. & should be used if
+index is given.
+
+r-value and l-value
+a variable will have attributes. 2 of them are address and value. I
+will explain thru example.
+int x=10,y;
+x=20; // 20 is stored in x, it needs address attribute of x. x is on
+left side of = , so it is l-value
+y=x; // value of x is stored in y, x is on right side, its value attribute
+is used. it is r-value.
+y takes l-value and x takes r-value.
+
+Pointers
+int main(0
+{
+	int x = 10;
+	int *p;
+	p = &x;
+	// int *p = &x;
+	
+	cout << x << endl;
+	cout << &x << endl;
+	cout << p << endl;
+	cout << &p << endl;
+	cout << *p << endl;
+
+	return 0;
+}
+
+Dynamic pointer allocation
+int main(0
+{
+	int size;
+	cout << "Enter array size: " << endl;
+	cin >> size;
+	
+	int A[size];
+	
+	cout << sizeof a << endl;
+
+	return 0;
+}
+
+Pointer arithmetic;
+int main(0
+{
+	int A[5] = {1, 2, 3, 4, 5};
+	int *p = A;      
+	int *q = &A[4];  
+	
+	cout << *p << endl; //1
+	cout << *q << endl; //5
+	
+	p++;
+	cout << *p << endl; //2
+	
+	p--;
+	cout << *p << endl; //1
+	
+	cout << p << endl;  // address
+	cout << p+2 << endl; // address
+	
+	cout << q - p << endl;  // 4
+	cout << p - q << endl;  // -4
+	
+
+	return 0;
+}
+
+Reference
+• Reference is a Alias of variable
+• It must be initialised when declared
+• It doesn’t take any memory
+• It cannot be modified to refer other variable
+• Syntax for reference declaration is
+• Int &y=x;
+
+char *s=“Hello” - Error
+char *s=“Hello” may not be supported in all compilers.
+change it to char s[]=“Hello”;
+
+String Literal - char *s=“Hello”;
+“Hello” is a literal.
+Literal means direct values used in a program. Like int x=10;
+Literals are stored in code section.
+Literal cannot me modified. Like s[2]=‘k’; is invalid.
+
+char vs string
+char type of variable can store a single character.
+example:
+char c=‘A’;
+
+string is an array of characters used for storing a name, word , sentence etc.
+It is terminated by ‘\0’
+
+Example:
+char str[6]={‘H’,’e’,’l’,’l’,’o’,’\0’};
+char str[6]=“Hello”; // ‘\0’ will be included at the end.
+
+class string vs char str[]
+string is a builtin class in C++ to store a string.
+Internally it contains an array of characters.
+It will create array of characters in heap.
+It has many functions for performing string operations
+example:
+string str=“Hello” // this will create a string object.
+
+char str[10]=“Hello”; is a C style string. 
+It can contain set of characters terminated by ‘\0’
+
+char *s vs char s[10]
+char s[10]; is an array of characters. Is can contain string
+Example:
+char str[6]={‘H’,’e’,’l’,’l’,’o’,’\0’}; // ‘\0’ also takes space
+
+char *s; is pointer of type character. In can point on a char array or string
+
+Example:
+1.char *s=“Hello”; // s is pointing to a string literal
+2.char str[]={‘H’,’e’,’l’,’l’,’o’,’\0’};
+char *s=str; // s is pointing to a string in array
+
+getline(cin,str) vs cin.getline(str,100)
+
+getline(cin,str) is used for reading a string object. It will not
+work for char array.
+
+cin.getline(str,100) is used for reading a string in char array.
+It will not work for string class object
+
+example:
+1. string str;
+getline(cin,str); it is used with string class.
+
+2. char str[10];
+cin.getline(str,100); it is used with char array.
+
+sizeof() vs strlen()
+sizeof is used for finding size of a data type or variable. 
+It cannot find string length
+
+strlen(str) is a function used for finding length of a string.
+
+strtok()
+It is used for tokenising a string
+In first call we pass a string from second call we pass NULL, it will
+use same string given in first call.
+
+First call
+strtok(“hello:how:are:you”,”:”); this is the first call
+• In first call it will return first token “hello” as a string
+• char *t; is used for taking tokens.
+• In first call, it will store the string internally.
+
+Second call
+strtok(NULL,”:”); this is the second call.
+• NULL means, it will use the same string given in first call
+• From second call onwards it will give second token onwards.
+• Same call is repeated with NULL to get all the tokens.
+
+cin.ignore()
+•When we enter any input from keyboard, it is transferred to an
+input buffer.
+• Program reads the data from input buffer
+• After entering value from keyboard, we hit enter.
+• Program will read the value and ignore enter key from buffer.
+• If program doesn’t ignore it the it may not read next input.
+• cin.ignore() is used for forcing the program to ignore it.
+• Usually programs don’t read a string value because of enter key.
+• Use cin.ignore() before reading a string.
+
+#include<cstring> vs #include<string>
+#include<cstring> this library contains C language function
+#include<string> this contains C++ class for string
+
+Length, reverse of string
+int main()
+{
+    
+    string name = "RAMA";
+    string rev;
+    int count = 0;
+    
+    string::iterator itr;
+    
+    for(itr = name.begin(); itr != name.end(); itr++)
+    {
+        cout << *itr << " ";
+        count++;
+    }
+    
+    int i = 0;
+    int c = 0;
+    while(name[i] != '\0')
+    {
+        c++;
+        i++;
+    }
+    
+    cout << endl;
+    
+    cout << c << endl;
+    
+    cout << count << endl;
+    
+    int size = name.size();
+    
+    cout << size << endl;
+    
+    
+    for(int i=size; i >= 0; i--)
+    {
+        rev += name[i];
+    }
+	
+	cout << rev << endl;
+	
+	if (rev == name)
+	    cout << "Palindrom" << endl;
+	else
+	    cout << "Not a palindrom" << endl;
+	    
+	return 0;
+}
+
+Changing cases of letters
+int main()
+{
+    
+    string name = "rama";
+    
+    for(int i=0; name[i] != '\0'; i++)
+	{
+		if(name[i] >= 97 && name[i] <= 122)
+			name[i] -= 32;
+	}
+	cout << name;
+	return 0;
+}	
+
+Vowels, Consonants, Word Counter
+int main()
+{
+    
+    string s = "how many words";
+    
+    int vowels = 0;
+    int consonants = 0;
+    int spaces = 0;
+    
+    for(int i=0; s[i] != '\0'; i++)
+	{
+		if(s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U' ||
+		   s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u')
+	    {
+		    vowels++;
+		}else if( s[i] == ' ')
+		{
+		    spaces++;
+		}else
+		{
+		    consonants++;
+		}
+	}
+	cout << s << endl;
+	cout << 'v' << vowels << endl;
+	cout << 'c' << consonants << endl;
+	cout << 'w' << spaces + 1 << endl;
+	
+	return 0;
+}	
+
+Find user name
+int main()
+{
+    
+    string s = "dadaji@gmail.com";
+    string user;
+    
+    int i = 0;
+    while(s[i] != '@')
+    {
+        user += s[i];
+        i++;
+    }
+    
+    cout << user << endl;
+	
+	return 0;
+}
+
+Functions
+• Function is a module which performs a specific task
+• Functions are called by name
+• Rules for giving function name is same as variable name
+• Function can take 0 or more parameters
+• Function can return single value
+• Void function don’t return any value
+• Default return type is int
+
+Will the functions occupy space in memory?
+Yes, the machine code of a function is kept code section.
+
+Will a function occupy space even if it is not called?
+Yes, if a function is defined in a program or included from library, it
+will occupy space in code section.
+
+Where the memory for variable of a function is created?
+Memory for the variables used in a function is created in stack
+
+When the memory for variables will be allocated?
+Memory for the variables will be allocated at runtime, when the
+function is called and deleted when function ends.
+
+Is the memory for variables is allocated freshly for each call?
+For for each call of a function memory for the variables is created
+freshly in the stack.
+
+What is return type of a function?
+When a function is called by passing parameters, it will compute and
+get the results. A function can return the result to a calling function.
+Return type is the datatype of a value return by the function.
+
+What is void?
+If a function is not returning any value then tis return type is
+mentioned as void.
+
+Difference between int main() and void main()
+void main() means main function is not returning any value.
+int main() means main function will return 0; 0 is a success code.
+The function have terminated successfully. main() will return the
+value to operating system, like windows.
+In C++ int main() is standard.
+
+Functions
+
+void display()
+{
+	cout << "Hello " << endl;
+}
+
+int main()
+{
+	display();
+	return 0;
+}
+
+Maximum number
+
+int max(int a, int b, int c)
+{
+	if (a > b && a > c)
+		return a;
+	else if(b > c)
+		return b;
+	else
+		return c;
+}
+
+int main()
+{
+	int a, b, c, d;
+	cout << "Enter the numbers: " << endl;
+	cin >> a >> b >> c;
+	
+	d = max(a, b, c);
+	
+	cout << d << endl;
+	
+	return 0;
+}
+
+Function Overloading -FAQ
+What is signature/prototype?
+The header of a function is called as signature or prototype.
+Example:
+int fun(int x,float y);
+
+Two functions with same name. Are they overloaded ?
+Yes, they are overloaded functions if their parameters are different.
+
+Is the return type considered in overloading?
+No.
+
+Two functions with same name and parameters, but different
+return type. Are they overloaded?
+No. Return type is not considered in overloading.
+Example:
+These are not overloaded
+int fun(int x, int y)
+float fun(int x, int y)
+
+Are these functions overloaded?
+int fun(int x, float y) and int fun(float x, int y)
+Yes. They are overloaded
+
+Function Overloading
+int main()
+{
+
+	int sum(int a, int b)
+		return a + b;
+		
+	float sum(float a, float b)
+		return a + b;
+	
+	int sum(int a, int b, int c)
+		return a + b + c;
+	
+	int a, b, c, d;
+	cout << "Enter the numbers: " << endl;
+	cin >> a >> b >> c;
+	
+	cout << sum(10, 5) << endl;
+	cout << sum(10.5f, 5.5f) << endl;
+	cout << sum(10, 15, 20) << endl;
+	
+	return 0;
+}
+
+Function Template - FAQ
+•max() function is giving error
+max() is a inbuilt function in C++.
+Change the name to maxim()
+
+•Can we have a template function along with default
+argument?
+No.
+
+•class vs typename
+Both are same. You can use any one
+
+•Can we initialise template variable
+Yes. It should be initialised only with 0.
+
+Default Arguments
+•Can a default argument function also be a template
+No.
+
+•Default values should be filled from which side
+Default values for formal arguments must be foibles from right side
+without skipping any parameter.
+
+template<class T>
+    T maximum(T a, T b)
+    {
+        if (a > b)
+            return a;
+        else
+            return b;
+    }
+
+  
+int main()
+{
+    cout << maximum(10, 5) << endl;
+    cout << maximum(10.5, 5.5) << endl;
+    cout << maximum(10.9f, 555.5f) << endl;
+	
+	return 0;
+}	
+
+Default Arguments
+• Parameters of a function can have default values
+• If a parameter is default then , passing its value is options
+• Function with default argument can be called with variable number of argument
+• Default values to parameters must be given from right side parameter
+• Default arguments are much useful in constructors
+• Default arguments are useful for defining overloaded functions
+
+int sum(int a, int b, int c = 0)
+	return a + b + c;
+
+int main()
+{
+    cout << sum(10, 5) << endl;
+    cout << sum(10, 5, 3) << endl;
+   
+	return 0;
+}
+
+•How Call by Reference works?
+In call by reference, complier may make a function as inline.
+The machine code of the function may be copied at the place
+of function call.
+Or
+Compiler may convert reference into a constant pointer.
+(constant pointer: a pointer is initialised once and cannot be
+changed)
+
+•What happens, If one parameter is reference and
+another pointer?
+Obviously, function will not become an inline function. Compiler
+will convert a reference into constant pointer.
+
+Parameter Passing Methods
+Three parameter passing methods are supported by C++
+
+Pass-By-Value : values of Actual parameters are passed to formal parameters. Actual
+parameters cannot be modified by function
+
+Pass-By-Address: Address of Actual Parameters are passed to a function, formal
+parameters must be pointers. Function can indirectly access actual parameters.
+
+Pass-By-Reference: Actual parameters are passed as reference to formal parameters,
+function can modify actual parameters.
+
+Program for Call by Value
+• Value of actual parameters are copied in formal parameters
+• If any changes done to formal parameters in function, they will not modify actual parameters
+
+Void swap(int a, int b)
+{
+	int temp;
+	temp=a;
+	a=b;
+	b=temp;
+}
+
+Int main()
+{
+	int x=10, y=20;
+	swap(x,y);
+	cout<<x<<y;
+}
+
+Call by Address
+• Address pf actual parameters are passed.
+• Formal parameters must be pointers
+• Formal parameters ca indirectly access actual parameters.
+• Changes done using formal parameters will reflect in actual parameters
+
+Void swap(int *x, int *y)
+{
+	int temp;
+	temp=*x;
+	*x=*y;
+	*y=temp;
+}
+
+Int main()
+{
+	int a=10, b=20;
+	swap(&a,&b);
+	cout<<a<<b;
+}
+
+Call by Reference
+• Actual parameters are passed as reference
+• Formal parameters can directly access actual parameters
+• Function call is converted into inline function, if not possible it will become call by
+address
+• Reference don’t take extra memory
+• Syntax is same as Call by Value except, formal parameters are reference
+
+Void swap(int &a, int &b)
+{
+	int temp;
+	temp=a;
+	a=b;
+	b=temp;
+}
+
+Int main()
+{
+	int x=10, y=20;
+	swap(x,y);
+	cout<<x<<y;
+}
+
+Return by address
+Return by Address
+• A function can return address of memory
+• It should not return address of local variables, which will be disposed after function ends
+• It can return address of memory allocated in heap
+
+int *fun()
+	{
+		int *p = new int[5];
+		for(int i=0; i < 5; i++)
+			p[i] += i * 5;
+	
+	cout << p << endl;
+	return p;
+	}
+
+int main()
+{
+	int * q = fun();
+	
+	for(int i=0; i < 5; i++)
+		cout << q[i] << " ";
+
+		
+	return 0;
+}
+
+Return by Reference
+• A function cal return reference
+• It should not return reference of its local variables
+• It can return formal parameters if they are reference
+
+int & fun(int &a)
+{
+    cout << a << endl;
+    return a;
+}
+
+
+int main()
+{
+    int a = 10;
+    fun(a) = 25;
+    cout << a << endl;
+
+	return 0;
+}
+
+Global and Local
+int g=5;
+void fun()
+{
+	int a=10;
+	a++;
+	g++;
+	cout<<a<<" "<<g<<endl;
+}
+int main()
+{
+	cout<<g<<endl;
+	fun();
+	cout<<g<<endl;
+}
+
+Scope Global and Local
+int x=10;
+int main()
+{
+	int x=20;
+	{
+		int x=30;
+		cout<<x<<endl;
+	}
+	cout<<x<<endl;
+	cout<<::x<<endl;
+}
+
+Static variables
+• They have local scope but remain in memory thru out the execution of program
+• They are created in code section
+• They are history-sensitive
+
+void fun()
+{
+	static int s=10;
+	s++;
+	cout<<s<<endl;
+}
+
+int main()
+{
+	fun();
+	fun();
+}
+
+Recusive function
+void fun(int n)
+{
+    if (n > 0)
+    {
+        cout << n << endl;
+        fun(n - 1);
+    }
+}
+
+int main()
+{
+    
+    fun(5);
+    
+    return 0;
+}
+
+Linear search using function
+int LinearSearch(int a[], int n, int key)
+{
+    for(int i=0; i < n; i++){
+        if(a[i] == key)
+            return i;
+    }
+    return 0;
+}
+
+int main()
+{
+    int A[5] = {1, 15, 78, 98, 3};
+    
+    int res = LinearSearch(A, 5, 78);
+    
+    cout << " key is found at " << res << endl;
+    
+    return 0;
+}
+
+What is the purpose of Data Hiding?
+•Data hiding is mistaken as data security.
+•By hiding data a programmer can avoid mishandling of data by the code outside the class.
+•Data is accessible only within a class.
+•Only the functions of a class, knows what processing should be done on that data
+
+Encapsulation vs Abstraction
+•A Class is used for Encapsulation as well as Abstraction
+
+•Encapsulation means combining related data members and
+functions together.
+• Encapsulation is achieved using a class.
+
+•Abstraction means hiding data and showing required functions.
+•Abstraction is achieved using encapsulation and data hiding.
+
+Private and public.
+
+structure vs class
+•C++ supports both structure and class
+• structure in C++ can have data members and member functions.
+
+•All members of a structure are public by default.
+• class can contain data members and member functions
+
+•All members of a class are private by default.
+
+What is “this” pointer?
+• It represents current object.
+• It is useful in avoiding variable name conflict.
+
+Object-Oriented Programming
+Features of OOPS
+• Abstraction
+• Data Hiding
+• Inheritance
+• Polymorphism
+
+Classes
+• Class is a blue print of an object
+• Class in a group of objects
+• Class is a design of object
+•
+
+Many object can be created from same class
+• Object consumes memory equal to sum of sizes of all data members
+• Member functions don’t occupy memory
+• Member functions are called depending on object
+• . Dot operator is used for accessing members of object
+• Memory allocated for object is also called as instance
+
+Where the class in stored?
+• In C++, class is not stored in main memory
+•All member functions of a class are stored in Code section at
+loading time.
+• If an object of a class is created inside a function then memory for
+all data members will be created in a stack of a function.
+
+Class
+class Rectangle{}
+public:
+
+    int length;
+    int breadth;
+
+   int area()
+   {
+       return length * breadth;
+   }
+    
+    
+    int perimeter()
+    {
+        return 2 * (length + breadth);
+    }
+};
+
+int main()
+{
+    Rectangle r1;
+    r1.length = 10;
+    r1.breadth = 5;
+    
+    cout << r1.area() << endl;
+    cout << r1.perimeter() << endl;
+
+    return 0;
+}
+
+Create object in Stack or Heap
+Stack:
+Rectangle r1; // Valid
+Rectangle r1( ); // invalid, don’t give empty brackets.
+
+Heap:
+Rectangle *p; // pointer, it is created in stack.
+p=new Rectangle(); // object is created in heap. Empty () can be given.
+
+Pointer size
+Every pointer takes 8 bytes of memory in latest compiler.
+Size of pointer is not dependent on its datatype.
+Note: I have assumed that pointer takes 2 bytes, to make explanation easy
+
+'->' vs '.'
+Stack: if an object is created in stack, use ‘.’
+Rectangle r1;
+r1.area();
+
+Heap: if an object is created in heap then use ‘->’
+Rectangle *p;
+p=new Rectangle();
+p->area();
+
+Constructors - FAQ
+What is a default constructor?
+•A constructor which dont take any parameters is called as default constructor.
+
+•There are 2 Types of default constructors
+1.Compiler provided
+2.User-defined
+
+Compiler provided default constructor
+•If we don’t write any constructor, compiler will provide a default constructor.
+•It will create the object, but doesn’t initialise data members.
+•If we define our own contractor, then compiler will not provide default constructor.
+
+Why we write constructor?
+•We can initialise the data members of an object.
+• If data members are initialised then we can use the object.
+
+Type of Constructors
+There are 3 type of constructors.
+1.Non-parametrised (also called as default)
+2.Parameterised
+3.Copy constructor
+
+Do we have to write all constructors ?
+•It is better to write all constructors.
+•I am not writing it in every lecture because I have to focus on actual topic.
+
+Why copy constructor should take reference?
+•If parameter is call by value then it will create new object for
+parameter.
+•Constructor will call constructor again to create the object of
+parameter.
+•It will be become a recursive call to constructor.
+
+Can we initialise the variables directly?
+•Yes you can initialise. But values will always be same.
+•Constructor will allow us to initialise with desired values.
+
+Can we read values inside the constructor using cin?
+•If main() is creating object then, it is better to read values inside
+main and pass values to constructor.
+•Using cin means, interacting with user. If user interaction is done
+in main() then it is a good design.
+
+Copy constructor vs Assignment operator
+their working is same but usage is different.
+Rectangle r1(10,5);
+Rectangle r2(r1); // copy constructor is called
+Rectangle r3=r1; // assignment operator is called
+
+Deep Copy vs Shallow Copy Constructors
+Deep Copy:
+• deep copy constructor is useful for making a copy of dynamic structures which are in heap. 
+like Dynamic Array ,Linked List, Trees etc.
+
+• if member of a class is a pointer 'p' and it is pointing to array or object in heap.
+• if object A is having its member 'p' pointing on an array or object in heap and 
+you are making a copy of A as B then 'p' of B will also point on same array or object of A.
+
+• to have separate copy of B another array or object should be created and make 'p' point on it.
+• if a copy constructor is doing it, we say Deep copy constructor.
+
+Shallow Copy:
+• Copy constructor will copy only the members of an object.
+• If an object is holding any memory in heap, it will not be copied.
+
+Default Constructor
+class Rectangle{}
+public:
+
+    int length;
+    int breadth;
+    
+    Rectangle (length = 1, breadth = 1) {}
+
+   int area()
+   {
+       return length * breadth;
+   }
+    
+    
+    int perimeter()
+    {
+        return 2 * (length + breadth);
+    }
+};
+
+int main()
+{
+    Rectangle r1;
+    Rectangle *p;
+    p = &r1;
+    
+    p->length = 10;
+    p->breadth = 5;
+    
+    cout << p->area() << endl;
+    cout << p->perimeter() << endl;
+
+    return 0;
+}
+
+Pointer to an Object
+• A pointer of type class can be created
+• A pointer can point on existing object
+• A new object can be created in heap using pointer
+• Arrow operator is used for accessing members of an object using pointer
+
+Data Hiding
+• Data members of a class class are usually declared as Private or Protected,
+• They can be accessed only inside the class and child classes
+• Data finding protects data from mishandling
+
+Constructors
+• Constructor is a member function of a class
+• It will have same name as class name
+• It will not have return type
+• Its should be public
+• It can be declared as private also in some cases
+• It is called when object is created
+• It is used for initialising an object
+• It can be overloaded
+• If its not defined then class will have a default constructor
+• Constructor can take default arguments
+
+Types of constructors
+• Non-argument constructor
+• Parameterised constructor
+• Copy constructor
+
+All types of Member Functions
+• Constructors - called when object is created
+• Accessors - used for knowing the value of data members
+• Mutators - used for changing value of data member
+• Facilitator - actual functions of class
+• Enquiry - used for checking if an object satisfies some condition
+• Destructor - used for releasing resources used by object
+
+All Methods
+class Rectangle{
+private:
+    int length;
+    int breadth;
+    
+public:
+    Rectangle()
+    {
+        length = 1; 
+        breadth = 1;
+    }
+    
+    Rectangle(int l, int b) : length{l}, breadth{b} {}
+    
+    Rectangle(const Rectangle &r) 
+    {
+        length = r.length;
+        breadth = r.breadth;
+    }
+
+    void setLength(int l)
+    {
+        length = l;
+    }
+    
+    void setBreadth(int b)
+    {
+        breadth = b;
+    }
+    
+    int getLegnth() const 
+    {
+        return length;
+    }
+    
+    int getBreadth() const
+    {
+        return breadth;
+    }
+    
+    int area()
+    {
+        return length * breadth;
+    }
+    
+    int perimeter()
+    {
+        return 2 * (length + breadth);
+    }
+    
+    bool isSquare()
+    {
+        return length == breadth;
+    }
+    
+    ~Rectangle()
+    {
+        cout << "Rectnagle destroyed" << endl;
+    }
+
+};
+
+int main()
+{
+    Rectangle r1;
+    Rectangle r2(10, 5);
+    Rectangle r3(r2);
+    
+    cout << r3.getLegnth() << endl;
+    cout << r3.getBreadth() << endl;
+    cout << r3.area() << endl;
+    cout << r3.perimeter() << endl;
+    
+    return 0;
+}
+
+Good practise to write functions outside the class using?
+• Class definition should be separation and function body should be
+separate. It will be easy to read and share.
+
+• Class will contain definitions of functions, that can be shared as
+header file and implementation of functions outside class using
+scope resolution can be kept in library file.
+
+• If we are sharing code with others then they can’t see the code in
+functions
+
+• If they are implemented inside then they will become inline by
+default.
+
+One more thing, Functions should not be inline. But when you
+were writing a function for single line also then it’s better to make
+inline to avoid function call.
+
+inline functions
+• simple single line functions can be made as inline.
+• inline functions will save time. call will not be made and activation
+record will not be created.
+• if we define a function inside a class and if we call it multiple times
+in our main function. Then the code will be copied at all places
+wherever it is called in the code section of the memory.
+• inline functions will be copied in place of function call. they will not
+work like normal functions. they dont require function call, this will
+save little time
+• we should write property function get/set as inline. functions with
+loops should be avoided.
+• copying of code is decided by compiler. writing inline is a hint to
+compiler.
+
+Operator Overloading FAQ
+Can a member function have the object of same class?
+Yes.
+
+Why operator is returning the object of same class?
+It is returning the result object. If 2 Complex numbers are added then it is returning their sum.
+
+c3=c1+c2. Assignment operators should be overloaded?
+No need. C++ provides assignment on object.
+Assignment operator must be overloaded if object are having memory in heap.
+
+
+”this” keyword.
+When a operator function for + is defined like
+Complex operator+(Complex c2)
+Then it is called like  c3=c1+c2;
+Here function is called upon c1 and c2 is passed as parameter.
+
+Members of c2 can be accessed using c2.real etc.
+Members of c1 can be accessed using this->real etc.
+
+Complex operator+(Complex &x) using reference.
+Using reference (Complex &x) is better, it will not create a new object.
+If call by value is used (Complex x) then object x will be created and its constructor is called. 
+We may have to define copy constructor also.
+
+How operator+(…..) works as +?
+It is a syntax given in C++. Compiler will understands operator+ means +.
+
+Can we define friend function for +?
+Yes. Its prototype should look like this Complex operator+(Complex &c1,Complex &c2);
+c3=c1+c2; both objects will be passed as parameter.
+
+:: for friend function.
+We don’t use scope resolution for friend functions. 
+They are global functions.
+
+Friend function
+if are using two or more objects in the parameter. 
+Then we have to make use of friend.
+when both are of same class then we have 2 options.
+1. make operator as a member of class
+2. make it as friend
+when 2 arguments are from different classes then there is only 1 option that is friend function
+
+Operator overloading
+• Operators can be overloaded on our classes
+• We can define operator for our own classes
+• Operators can be overloaded using member functions or friend functions
+• Global functions can also access private and protected members of an object if they are
+declared as friend inside a class
+
+class Complex{
+private:
+    int real;
+    int img;
+    
+public:
+    Complex()
+    {
+        real = 1;
+        img = 1;
+    }
+    
+    Complex(int r, int i) : real{r}, img{i}{}
+    
+    Complex(const Complex &c)
+    {
+        this->real = c.real;
+        this->img = c.img;
+    }
+    
+    Complex operator+(Complex &c)
+    {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.img = img + c.img;
+        return temp;
+    }
+    
+    void display()
+    {
+        cout << real << "+" << img << "j" << endl;
+    }
+    
+};
+
+int main()
+{
+    Complex c1(10, 5);
+    Complex c2(15, 20);
+    Complex c3;
+    
+    c3 = c1 + c2;
+    
+    c3.display();
+   
+    
+    return 0;
+}
+
+Using Friend Function
+#include <iostream>
+#include <cstring>
+#include <string>
+
+using namespace std;
+
+class Complex{
+private:
+    int real;
+    int img;
+    
+public:
+    Complex()
+    {
+        real = 1;
+        img = 1;
+    }
+    
+    Complex(int r, int i) : real{r}, img{i}{}
+    
+    Complex(const Complex &c)
+    {
+        this->real = c.real;
+        this->img = c.img;
+    }
+    
+    /*
+    Complex operator+(Complex &c)
+    {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.img = img + c.img;
+        return temp;
+    }
+    */
+    
+    void display()
+    {
+        cout << real << "+" << img << "j" << endl;
+    }
+    
+    friend Complex operator+(Complex &c1, Complex &c2);
+    
+};
+
+Complex operator+(Complex &c1, Complex &c2)
+{
+    Complex temp;
+    temp.real = c1.real + c2.real;
+    temp.img = c1.img + c2.img;
+    return temp;
+}
+
+
+
+int main()
+{
+    Complex c1(10, 5);
+    Complex c2(15, 20);
+    Complex c3;
+    
+    c3 = c1 + c2;
+    
+    c3.display();
+   
+    
+    return 0;
+}
+
+Stream operator Overloading
+#include <iostream>
+
+using namespace std;
+
+class Complex{
+private:
+    int real;
+    int img;
+    
+public:
+    Complex()
+    {
+        real = 1;
+        img = 1;
+    }
+    
+    Complex(int r, int i) : real{r}, img{i}{}
+    
+    Complex(const Complex &c)
+    {
+        this->real = c.real;
+        this->img = c.img;
+    }
+    
+    /*
+    Complex operator+(Complex &c)
+    {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.img = img + c.img;
+        return temp;
+    }
+    */
+    
+    void display()
+    {
+        cout << real << "+" << img << "j" << endl;
+    }
+    
+    friend Complex operator+(Complex &c1, Complex &c2);
+    friend ostream & operator<<(ostream &out, Complex &C);
+    
+};
+
+Complex operator+(Complex &c1, Complex &c2)
+{
+    Complex temp;
+    temp.real = c1.real + c2.real;
+    temp.img = c1.img + c2.img;
+    return temp;
+}
+
+ostream & operator<<(ostream &out, Complex &c)
+{
+    out << c.real << " " << c.img << endl;
+    return out;
+}
+
+
+
+int main()
+{
+    Complex c1(10, 5);
+    Complex c2(15, 20);
+    Complex c3;
+    
+    c3 = c1 + c2;
+    
+    cout << c3 << endl;
+    
+    c3.display();
+   
+operator<<(cout, c3);
+    return 0;
+}
+
+Insertion Operator - FAQ
+:: not required for friend functions?
+No. It is not required.
+friend functions are global functions.
+
+Insertion Operator Overloading
+• Prototype of a function is standard.
+Prototype:
+•ostream & operator<<(ostream &os, Complex &c);
+• It is a global function.
+• It must be declared as friend inside class Complex.
+• It must take 2 parameters.
+1. ostream
+2. Object of your class.
+• ostream parameter must be reference
+•Return type should be reference of ostream
+
+How cout works?
+• If Complex comp; is a complex object, then
+• cout<<comp;
+•Here operator<< is called and 2 parameters are passed
+1. cout
+2. comp
+
+Why return by reference?
+•usually if you write cout<<x<<y; then x is printed using cout and
+after printing x it should become cout<<y, means y should also
+get cout.
+• Similarly if we write
+cout<<comp<<endl;
+• Operator<< is called by passing cout and comp then it returns ostream by
+reference.
+• Result of return by reference comes on left side so it becomes
+• cout<<endl; Then endl is printed.
+
+Inheritance.
+Available vs Accessible
+
+Available : If a class Derived is inheriting from Base class then everything
+from Base class will be available/present in Derived class.
+
+Accessible: everything is available in Derived class but private members are
+not accessible.
+
+Example: bank balance of Father is available for Son by not accessible. Son
+has to ask Father for money. Only Father can access his account.
+
+Why Private, Public and Protected ?
+OOPS is a design method for programming.
+Class will contain all the members together for tis working. just like a bank
+contains everything in a building for running their business.
+Everything is not accessible for customers in the bank.
+Similarly, everything is not accessible outside the class upon a object.
+
+Why private members are not accessible?
+If you want to access then make them public.
+It all depends on you to define the policy of your class.
+You have options to make public or private or protected.
+
+Why different type of constructors?
+OOPS is a design method for programming.
+Design should be complete, it may be used fully or not.
+If you buy a TV, it will have so many functions, but we don’t use
+them.
+Similarly, class should provide all types of methods, whether you
+use them or not.
+
+Inheritance
+• It is a process of acquiring features of an existing class into a new class
+• It is used for achieving reusability
+• features of base class will be available in derived class
+
+class Base{
+public:
+        int a;
+        
+        void display()
+        {
+            cout << "Display of base " << a << endl;
+        }
+};
+
+
+class Derived : public Base
+{
+public:
+  
+    void show()
+    {
+        cout << "Show of derived " << endl;
+    }
+    
+};
+
+
+int main()
+{
+    Derived d;
+    d.a = 10;
+    d.display();
+    d.show();
+   
+    
+    return 0;
+}
+
+Inheritance
+class Rectangle{
+private:
+    int length;
+    int breadth;
+    
+public:
+    Rectangle()
+    {
+        length = 1; 
+        breadth = 1;
+    }
+    
+    Rectangle(int l, int b) : length{l}, breadth{b} {}
+    
+    Rectangle(const Rectangle &r) 
+    {
+        length = r.length;
+        breadth = r.breadth;
+    }
+
+    void setLength(int l)
+    {
+        length = l;
+    }
+    
+    void setBreadth(int b)
+    {
+        breadth = b;
+    }
+    
+    int getLegnth() const 
+    {
+        return length;
+    }
+    
+    int getBreadth() const
+    {
+        return breadth;
+    }
+    
+    int area()
+    {
+        return length * breadth;
+    }
+    
+    int perimeter()
+    {
+        return 2 * (length + breadth);
+    }
+    
+    bool isSquare()
+    {
+        return length == breadth;
+    }
+    
+    ~Rectangle()
+    {
+        cout << "Rectnagle destroyed" << endl;
+    }
+
+};
+
+class Cuboid : public Rectangle
+{
+private:
+    int height;
+    
+public:
+    Cuboid()
+    {
+        height = 1;
+    }
+    
+    Cuboid(int h) :  height{h}{}
+    
+    Cuboid(const Cuboid &c)
+    {
+        height = c.height;
+    }
+    
+    void setHeight(int h)
+    {
+        height = h;
+    }
+    
+    int getHeight() const
+    {
+        return height;
+    }
+    
+    int volume()
+    {
+        return getLegnth() * getBreadth() * height;
+    }
+    
+};
+
+int main()
+{
+    Cuboid r1;
+    Cuboid r2(3);
+    Cuboid r3(r2);
+    
+    cout << r3.getLegnth() << endl;
+    cout << r3.getBreadth() << endl;
+    cout << r3.getHeight() << endl;
+    
+    cout << r3.area() << endl;
+    cout << r3.perimeter() << endl;
+    cout << r3.volume() << endl;
+    
+    return 0;
+}
+
+Copy Constructor
+#include <iostream>
+
+using namespace std;
+
+class Rectangle{
+private:
+    int length;
+    int breadth;
+    
+public:
+    Rectangle()
+    {
+        length = 1; 
+        breadth = 1;
+        cout << "Rectangle Default Constructor" << endl;
+    }
+    
+    Rectangle(int l, int b) : length{l}, breadth{b} { cout << "Rectangle Parameterized Constructor" << endl;}
+
+    /*
+    Rectangle(const Rectangle &r) 
+    {
+        length = r.length;
+        breadth = r.breadth;
+        cout << "Rectangle Copy Constructor" << endl;
+    }
+    */
+    
+    void setLength(int l)
+    {
+        length = l;
+    }
+    
+    void setBreadth(int b)
+    {
+        breadth = b;
+    }
+    
+    virtual int getLegnth() const 
+    {
+        return length;
+    }
+    
+    virtual int getBreadth() const
+    {
+        return breadth;
+    }
+    
+    int area()
+    {
+        return length * breadth;
+    }
+    
+    int perimeter()
+    {
+        return 2 * (length + breadth);
+    }
+    
+    bool isSquare()
+    {
+        return length == breadth;
+    }
+    
+    virtual ~Rectangle()
+    {
+        cout << "Rectanagle destroyed" << endl;
+    }
+
+};
+
+class Cuboid : public Rectangle
+{
+private:
+    int height;
+    
+public:
+    Cuboid() : Rectangle{}
+    {
+        height = 1;
+        cout << "Cuboid Default Constructor" << endl;
+    }
+    
+    //Cuboid(int h) :  height{h}{}
+    
+    Cuboid(int l, int b, int h) : Rectangle{l, b}
+    {
+        height = h;
+        cout << "Cuboid Parameterized Constructor" << endl;
+    }
+
+    /*
+    Cuboid(const Cuboid &c) : Rectangle{c}
+    {
+        height = c.height;
+        cout << "Rectangle Copy Constructor" << endl;
+    }
+    */
+    
+    void setHeight(int h)
+    {
+        height = h;
+    }
+    
+    int getHeight() const
+    {
+        return height;
+    }
+    
+    int volume()
+    {
+        return getLegnth() * getBreadth() * height;
+    }
+    
+    ~Cuboid()
+    {
+        cout << "\nCuboid is destroyed " << endl;
+    }
+    
+};
+
+int main1()
+{
+    
+    Cuboid c1;
+    Cuboid c2{10, 5, 3};
+    Cuboid c3{c2};
+    
+    cout << c3.getLegnth() << endl;
+    cout << c3.getBreadth() << endl;
+    cout << c3.getHeight() << endl;
+    
+    cout << c3.area() << endl;
+    cout << c3.perimeter() << endl;
+    cout << c3.volume() << endl;
+    
+    return 0;
+}
+
+
+int main()
+{
+    Rectangle * rPtr = new Cuboid{10, 5, 3};
+    
+    cout << rPtr->getLegnth() << ' ';
+    cout << rPtr->getBreadth() << ' ';
+    cout << dynamic_cast<Cuboid *>(rPtr)->getHeight();
+    
+    delete rPtr;
+    rPtr = nullptr;
+    
+    return 0;
+}
+
+Access Specifiers
+• Private - Accessible only inside a class
+• Protected - Accessible inside a class and inside derived classes
+• Public - accessible inside class, inside derived class and upon object
+
+Ways of inheritance
+A class can be inherited in flowing ways
+Publicly - All members of base will have same accessibility in derived class
+Protectedly - All members of base will become protected in derived class
+Privately - All members of base will become private in derived class
+
+Base Class Pointer
+Why Base class Pointer to Derived class Object?
+• It is used for achieving polymorphism.
+• You will get clear idea, Once you complete this section
+• This entire section is a single topic, useful in next section
+
+Base class Pointer can access which methods?
+• If a Base Class pointer is pointing on derived class object then
+using the base class pointer we can access only inherited methods
+(methods defined in base class) on derived class object.
+
+#include <iostream>
+
+using namespace std;
+
+class Base{
+public:
+    void fun1()
+    {
+        cout << "Base class" << endl;
+    }
+};
+
+class Derived : public Base
+{
+public:
+    void fun2()
+    {
+        cout << "Derived class" << endl;
+    }
+};
+
+int main()
+{
+    Derived d;
+    Base *p;
+    p = &d;
+    
+   p->fun1();
+   //p->fun2();
+    
+    return 0;
+}
+
+Base class Pointer pointing to derived class object
+• Base class pointer can point on derived class object
+• But only those functions which are in base class, can be called
+• If derived class is having overrides functions they will not be called unless base class functions
+are declared as virtual
+• Derived class pointer cannot point on base class object
+
+Function Overriding
+• Redefining a function of base class in derived class
+• Function overriding is used for achieving runtime polymorphism
+• Prototype of a overrides function must be exactly same as base class function
+
+Base class ptr to derived class object without virtual - only base class functions accessible
+derived class object - only derived class function accessible
+Base class ptr to derived class object with virtual - derived class function accessible
+
+1.
+class base
+{
+public:
+	void display()
+	{
+		cout<<"display of base"<<endl;
+	}
+};
+
+class derived:public base
+{
+public:
+	void display()
+	{
+		cout<<"display of derived"<<endl;
+	}
+};
+
+int main()
+{
+	derived d;
+	base *p;
+	p = &d;
+	
+	p->display(); // display of base
+	
+	base *p = new derived();
+	p->display(); // display of base
+	
+	d.display(); // display of derived
+}
+
+2.***********************************
+class base
+{
+public:
+	virtual void display()
+	{
+		cout<<"display of base"<<endl;
+	}
+};
+
+class derived:public base
+{
+public:
+	void display()
+	{
+		cout<<"display of derived"<<endl;
+	}
+};
+
+int main()
+{
+	derived d;
+	base *p;
+	p = &d;
+	
+	p->display(); // display of derived
+	
+	d.display(); // display of derived
+}
+
+Abstract Function
+If a member function is not having a body then it is an abstract
+function.
+
+Example:
+class Test
+{
+public:
+void fun(); // body is not defined outside
+};
+
+Abstract Class
+If a class is having an abstract function then class becomes
+abstract.
+If a class is having pure virtual function then it becomes abstract.
+We can declare pointer of abstract class
+We can create object of abstract class but cannot call undefined
+functions.
+Abstract classes are useful for achieving polymorphism.
+
+Can we overriding private function?
+you can override but can't achieve polymorphism because private
+members cannot be called on object.
+
+If a base class has both concrete functions and pure
+virtual functions then can we create an object of that
+base class?
+Yes you can create the object of a class but cannot call undefined
+functions..
+
+Polymorphism
+• Same name different actions
+• Runtime Polymorphism is achieved using function overriding
+• Virtual functions are abstract functions of base class
+• Derived class must override virtual function
+• Base class pointer pointing to derived class object and a override function is called
+
+class Base{
+    public:
+        virtual void start()
+		{
+			cout << "Base " << endl;
+		}
+};
+
+class Derived1 : public Base 
+{
+    public:
+        void start()
+        {
+            cout << "Derived 1" << endl;
+        }
+};
+
+class Derived2 : public Base 
+{
+    public:
+        void start()
+        {
+            cout << "Derived 2" << endl;
+        }
+};
+
+
+int main()
+{
+	Base *p = new Derived1();
+	p->start(); // Derived1
+	
+	p = new Derived2();
+	p->start(); // Derived2
+	
+}
+
+Abstract class
+• Class having pure virtual function is a abstract class
+• Abstract class can have concrete also.
+• Object of abstract class cannot be created
+• Derived class can must override pure virtual function, otherwise it will also become a abstract
+class.
+
+• Pointer of abstract class can be created
+• Pointer of abstract class can hold object of derived class
+• Abstract classes are used for achieving polymorphism
+••
+
+Base class can be
+• Concrete
+• Abstract with some concrete and some pure virtual functions
+• All virtual functions
+
+class Base{
+    public:
+        virtual void start() = 0;
+};
+
+class Derived1 : public Base 
+{
+    public:
+        void start()
+        {
+            cout << "Derived 1" << endl;
+        }
+};
+
+class Derived2 : public Base 
+{
+    public:
+        void start()
+        {
+            cout << "Derived 2" << endl;
+        }
+};
+
+
+int main()
+{
+	Base *p = new Derived1();
+	p->start(); // Derived1
+	
+	p = new Derived2();
+	p->start(); // Derived2
+	
+}
+
+FRIEND FUNCTION AND CLASSES
+Can two different classes have same friend function ?
+Yes,we can also have the same friend function of two different classes .
+
+Don’t we have to declare friend function in the same
+manner as we declare friend class ?
+No,we declare friend function inside the class and implement them
+outside the class.
+In case of friend class, we are using the class by creating its object, so at
+least it’s name should be declare before using it. So we are declaring it
+before the class.
+
+What is the difference b/w Friend Operator
+Overloading and Friend Function
+Friend functions are global functions that can access all member of an
+object of a class.
+Operator Overloading can be done using member functions as well as
+friend functions.
+Operator Overloading done by using friend function is called as Friend
+Operator Overloading.
+
+Friend versus Accessor/Mutator function
+Accessor and Mutator functions can access private
+members directly where as,
+Friend Functions can access member upon object.
+Friend functions are used if a function have to access object of
+multiple classes, they act as connector.
+Usually operator overloading is done using Friend functions.
+
+If variable a and b are private in a constructor how
+are the initialized ?
+a and b can be initialized in a constructor, they can be of any access
+specifiers types public, private, or protected.
+Basically you can access all type of members inside same class regardless
+it is private, protected or public.
+
+STATIC MEMBERS
+Can the data members private,protected declared as
+static Be accessed inside the static function??
+A static member function can be called even if no objects of the class
+exist.
+The static functions are accessed using only the class name and the scope
+resolution operator :: as shown below :
+Class_name::static_member_name
+
+A static member function can only access static data member, other static
+member functions and any other functions from outside the class.
+
+Do we need to initialise static data members ?
+Other than static and global data members initialisation is must.
+Static and global are created in code section of main memory so they are
+created at loading time of program and initialised.
+
+Is it necessary to initialize the static variable after
+the class i.e outside or can we do it before the class
+as well?
+It is mandatory to declare the static variable outside the class.
+It can be done after defining the class.
+
+Can we implement Static function outside class just
+like static variable or is it mandatory to implement it
+inside class?
+Yes it can be done outside the class also.
+Every function can be implemented either inside or outside.
+Except friend function, which is implemented outside only.
+
+Can we make static variable and function private ?
+Yes you can make static members also as private.
+But they will be accessible only inside the class.
+
+INNER CLASSES
+Can we create outer class object in inner class and
+access the data members of the outer class inside
+the inner class ?
+Inner class is useful only for outer class.
+If a class is having lots of code then we can reduce its complexity by
+defining inner class.
+So inner class is useful only inside.
+
+What is flush and where do we use it?
+The output is sent to the screen using cout,it does not go immediately to
+the terminal.
+First it will be sent to output buffer and then displayed on the screen.
+Sometimes in very large programs, it remains in the buffer and we dont
+get the output in proper order.
+Flush is used to confirm that the buffered is cleared and the output is sent
+to the screen.
+
+Friend functions and classes
+• Friend functions are global functions
+• They can access member of a class upon their objects
+• A class can be declared as friend on another class
+• All the functions of friend class can access private and protected members of other class
+
+class Base2;
+
+class Base{
+private:
+    int a;
+ 
+protected:
+    int b;
+    
+public:
+    int c;
+    
+    friend Base2;
+    friend void show2();
+
+};
+
+class Base2{
+    public:
+        Base b1;
+        
+        void show()
+        {
+            b1.a = 10;
+            b1.b = 5;
+            b1.c = 3;
+            cout << b1.a << " " << b1.b << " " << b1.c << endl;
+        }
+    
+    
+};
+
+void show2()
+{
+    Base o;
+    o.a = 100;
+    o.b = 50;
+    o.c = 30;
+    cout << o.a << " " << o.b << " " << o.c << endl;
+}
+
+
+int main()
+{
+    Base2 b2;
+    b2.show(); // 10 5 3
+    
+    show2(); // 100 50 30 
+	
+}
+
+Static Members
+• Static data members are members of a class
+• Only one instance of static members is created and shared by all objects
+• They can be accessed directly using class name
+••
+Static members functions are functions of a class, they can be called using class name, without
+creating object of a class.
+• They can access only static data members of a class, they cannot access non-static members
+of a class.
+
+class Test{
+    public:
+        int num;
+        static int count;
+        
+        Test(int n) : num{n} 
+        {
+            count++;
+        }
+    
+        static int getCount()
+        {
+            return count;
+        }
+};
+
+int Test::count = 0;
+
+
+int main()
+{
+
+    Test t1{10};
+    cout << Test::getCount() << endl;
+	cout << t1.getCount() << endl;
+}
+
+class outer
+{
+	class inner;
+public:
+	void fun()
+	{
+		i.display();
+	}
+	class inner
+	{
+	public:
+		void display()
+		{
+			cout<<"display of inner"<<endl;
+		}
+	};
+	inner i;
+};
+int main()
+{
+	outer::inner i;
+}
+
+Are TRY,CATCH, THROW default names or can be replaced by any
+name??
+Those are key words.
+You can’t change them.
+
+is return and throw are same?
+can return be written in place of throw?
+there is no else in try function...why?
+return is for returning result.
+throw is for reporting an error.
+if you change three roles then roles of try and catch will also change.
+
+what if user enters a char or string the what should be written in
+if statement?
+you can have multiple catch for same try, another with different data type
+can be used
+
+use of cout instead of throw
+If you use cout , user will know the error.
+throw will inform the calling function about error.
+
+Can you tell me what will happen if we throw a class and try to
+display it in the catch() section , like
+catch(MyException e)
+{
+cout << e << endl;
+}
+don’t display it directly. Call what function
+cout<<e->what();
+what() should return a string message.
+
+why you have not throw object of class why you have throw
+default constructor 
+throwing constructor will create the object and throw.
+
+Can we throw functions too ? like when exception comes up we
+want some certain operation to be done...
+We can throw int , char or object of a class.
+
+inheriting class 'exception'
+why class 'Myexception' is inheriting from class 'exception' ?
+and by which method it is inheriting?(publically,protectedly or
+privately)
+For user defines exception class we have to inherit from exception class.
+You can inherit it in any way.
+It is better to do it using public. Must write public there.
+
+in case of an exception involving both base and derived class ,
+why is it necessary to write catch statement for derived class first
+and then the base class?
+if we have base class named "Vehicle" and derived class "Car" for exceptions.
+if an exception of class "Car" is thrown and the catch block is for "Vehicle" then
+it will catch the exception of "Car" coz it is also a "Vehicle".
+
+can u please help me in practice exercise 13
+exercise is to define and throw, user-defined exceptions.
+1. StackOverflor is inheriting from exception but it is dummy, so way of
+inheritance has no importance. you can make it public also.
+2. yes try and catch should be used for handling exception. I said, if you
+want to handle then write try and catch,
+
+int main()
+{
+	int x=10,y=2,z;
+	try
+	{
+		if(y==0)
+			throw 1;
+		z=x/y;
+		cout<<z<<endl;
+	}
+	catch(int e)
+	{
+		cout<<"division by zero"<<e<<endl;
+	}
+	cout<<"bye"<<endl;
+}
+
+Function
+int division(int a, int b)
+{
+    if(b == 0)
+        throw 101;
+    return a / b;
+}
+
+int main()
+{   
+    int z;
+   
+    try
+    {
+        z = division(10, 0);
+        cout << z;
+    }
+    catch (int e)
+    {
+        cout << " Division by Zero " << e << endl;
+    }
+}
+
+Using Class
+class myexception : public myexception
+{
+    
+};
+
+int division(int a, int b)
+{
+    if(b == 0)
+        throw myexception();
+    return a / b;
+}
+
+int main()
+{   
+    int z;
+   
+    try
+    {
+        z = division(10, 0);
+        cout << z;
+    }
+    catch (myexception e)
+    {
+        cout << " Division by Zero " << endl;
+    }
+}
+
+Inheritance 
+class myexception : public myexception
+{
+    
+};
+
+class myexception2 : public myexception
+{
+    
+};
+
+int main()
+{   
+    try
+    {
+        throw myexception();
+    }
+    catch (myexception2 e)
+    {
+        cout << "Int catch" << endl;
+    }
+    catch(myexception e)
+    {
+        cout << "Double catch" << endl;
+    }
+    catch(...)
+    {
+        cout << "All Catch" << endl;
+    }
+}
+
+User defined
+class StackOverFlow : exception{};
+
+class StackUnderFlow : exception{};
+
+class Stack{
+private:
+    int size;
+    int top = -1;
+    int * stk;
+    
+public:
+    Stack(int s)
+    {
+        size = s;
+        stk = new int[size];
+    }
+    
+    void push(int x)
+    {
+        if(top == size - 1)
+            throw StackOverFlow();
+        top++;
+        stk[top] = x;
+            
+    }
+    
+    int pop()
+    {
+        if(top == -1)
+            throw StackUnderFlow();
+        top--;
+        return stk[top];
+    }
+};
+
+int main()
+{
+    Stack s{2};
+    
+    s.push(1);
+    s.push(2);
+    s.push(3); // StackOverFlow
+    
+    //s.pop();
+    //s.pop();
+    //s.pop(); StackUnderFlow
+    
+    return 0;
+}
+
+Template functions and classes are generic classes
+They can work for any type of data
+Classes can support different type of data
+
+class StackOverFlow : exception{};
+
+class StackUnderFlow : exception{};
+
+template <class T>
+class Stack{
+private:
+    T size;
+    T top;
+    T * stk;
+    
+public:
+    Stack(T s)
+    {
+        size = s;
+        top = -1;
+        stk = new T[size];
+    }
+    
+    void push(T x)
+    {
+        if(top == size - 1)
+            throw StackOverFlow();
+        top++;
+        stk[top] = x;
+            
+    }
+    
+    T pop()
+    {
+        if(top == -1)
+            throw StackUnderFlow();
+        top--;
+        return stk[top];
+    }
+};
+
+int main()
+{
+    Stack<int> s{2};
+    
+    s.push(1.5);
+    s.push(2.4);
+    s.push(3.56); // StackOverFlow
+    
+    //s.pop();
+    //s.pop();
+    //s.pop(); StackUnderFlow
+    
+    return 0;
+}
+
+PreProcessor Directives
+• They are instructions to compiler
+• They are processed before compilation
+• They are used for defining symbolic constant
+• They are used for defining functions
+• They also support conditional definition
+
+# define x 10
+# define maximum(x, y) (x>y ? x : y)
+
+#ifndef PI
+    #define PI 3.14159
+#endif
+
+int main()
+{
+    cout << x << endl;;
+    cout << maximum(10, 5) << endl;
+    cout << PI << endl;
+    
+
+    return 0;
+}
+
+Namespaces
+
+namespace First
+{
+    void fun()
+    {
+        cout << "From namespace first " << endl;
+    }
+}
+
+namespace Second
+{
+    void fun()
+    {
+        cout << "From namespace second " << endl;
+    }
+}
+
+using namespace First;
+
+int main()
+{
+    fun();
+    
+    Second::fun();
+
+    return 0;
+}
+
+Destructor
+class demo
+{
+	int *p;
+public:
+	demo()
+	{
+		p=new int[10;
+	     	cout<<"constructor of demo"<<endl;
+	}
+       	~demo()
+	{
+		delete[]p;
+	   	cout<<"destructor of demo"<<endl;
+	}
+};
+void fun()
+{
+	demo *p=new demo();
+	delete p;
+}
+int main()
+{
+	fun();  // constructor and destructor
+}
+
+Inherited Destructor without virtual base destructor
+class base
+{
+public:
+	 ~base()
+	{
+		cout<<"destructor of base"<<endl;
+	}
+};
+class derived:public base
+{
+public:
+	~derived()
+	{
+		cout<<"destructor of derived"<<endl;
+	}
+};
+void fun()
+{
+	base *p=new derived();
+	delete p;
+}
+int main()
+{
+	fun();  // base destructor only
+
+}
+
+Inherited Destructor with virtual base destructor
+class base
+{
+public:
+	 virtual ~base()
+	{
+		cout<<"destructor of base"<<endl;
+	}
+};
+class derived:public base
+{
+public:
+	~derived()
+	{
+		cout<<"destructor of derived"<<endl;
+	}
+};
+void fun()
+{
+	base *p=new derived();
+	delete p;
+}
+int main()
+{
+	fun();  // both destructor first derived then base
+}
+
+Streams
+• I/O Streams are used for input and output data to and from the program
+• C++ provides class for accessing input output operations
+• Iostream is a base class for all classes
+• Istream is for input
+• Cin is the object of istream
+• ostream is for output
+• Cout is an object of ostream
+••
+ifstream is a file input stream
+• ofstream is a file output stream
+
+File Read - Write
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    // write file 
+    ofstream write_file("my.txt");
+    write_file << "Rama" << endl;
+    write_file << 2498 << endl;
+    write_file.close();
+    
+    // read file
+    string name;
+    int num;
+    
+    ifstream read_file("my.txt");
+    read_file >> name >> num;
+    read_file.close();
+    
+    cout << name << " " << num << endl;
+}
+
+Serialization
+• Serialization is a process of string and retrieving state of an object
+• Class must have a default constructor
+
+class Student{
+private:
+    string name;
+    int roll;
+    
+public:
+    Student(){};
+    
+    Student(string n, int r) : name{n}, roll{r} {}
+    
+    friend ofstream & operator<<(ofstream &write, Student &s);
+    friend ifstream & operator>>(ifstream &read, Student &s);
+    friend ostream & operator<<(ostream &out, Student &s);
+};
+
+ofstream & operator<<(ofstream &write, Student &s)
+{
+    write << s.name << " : " << s.roll << '\n';
+    return write;
+}
+
+ifstream & operator>>(ifstream &read, Student &s)
+{
+    read >> s.name >> s.roll;
+    return read;
+}
+
+ostream & operator<<(ostream &out, Student &s)
+{
+    out << s.name << " : " << s.roll << '\n';
+    return out;
+}
+
+int main()
+{
+    Student s1{"Datta", 24};
+    Student s2{"Shiva", 99};
+    
+    ofstream write_Test("Test.txt");
+    write_Test << s1;
+    write_Test << s2;
+    write_Test.close();
+    
+    
+    ifstream read_Test("Test.txt");
+    read_Test >> s1;
+    read_Test >> s2;
+    read_Test.close();
+    
+    cout << s1;
+    cout << s2;
+    
+    return 0;
+}
+
+Program to Store Items in a File
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+using namespace std;
+
+class Attendance{
+private:
+    string date;
+    string absents;
+    
+public:
+    Attendance(){};
+    
+    Attendance(string d, string a) : date{d}, absents{a} {}
+    
+    friend ofstream & operator<<(ofstream &write, Attendance &a);
+    friend ifstream & operator>>(ifstream &read, Attendance &a);
+    friend ostream & operator<<(ostream &out, Attendance &a);
+};
+
+ofstream & operator<<(ofstream &write, Attendance &a)
+{
+    write << a.date << " : " << a.absents << '\n';
+    return write;
+}
+
+ifstream & operator>>(ifstream &read, Attendance &a)
+{
+    read >> a.date >> a.absents;
+    return read;
+}
+
+ostream & operator<<(ostream &out, Attendance &a)
+{
+    out << a.date << " : " << a.absents << '\n';
+    return out;
+}
+
+int main()
+{
+    string dates;
+    string absent;
+    int entries;
+    
+    cout << "Please enter total number of entries: " << endl;
+    cin >> entries;
+    
+    //Attendance* list[entries];
+    vector<Attendance*> list(entries, nullptr);
+    
+    
+    cout << "Enter all entries: " << endl;
+    for(int i=0; i < entries; i++)
+    {
+        cout << "Enter " << i + 1 << " Date and Absent Students" << endl;
+        cin >> dates;
+        cin >> absent;
+        list[i] = new Attendance(dates, absent);
+    }
+    
+    ofstream write_Attendance("Attendance.txt");
+    for(int i=0; i < entries; i++)
+    {
+        write_Attendance << *list[i];
+    }
+    write_Attendance.close();
+    
+    string atd;
+    
+    ifstream read_Attendance("Attendance.txt");
+    
+    cout << " Date " << "     " << " Absent Students " << endl;
+    
+    for(int i=0; i < entries; i++)
+    {
+        getline(read_Attendance, atd);
+        cout << atd << endl;
+    }
+    read_Attendance.close();
+    
+    return 0;
+}
+
+Vector
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+using namespace std;
+
+class Attendance{
+private:
+    string date;
+    string absents;
+    
+public:
+    Attendance(){};
+    
+    Attendance(string d, string a) : date{d}, absents{a} {}
+    
+    friend ofstream & operator<<(ofstream &write, Attendance &a);
+    friend ifstream & operator>>(ifstream &read, Attendance &a);
+    friend ostream & operator<<(ostream &out, Attendance &a);
+};
+
+ofstream & operator<<(ofstream &write, Attendance &a)
+{
+    write << a.date << " : " << a.absents << '\n';
+    return write;
+}
+
+ifstream & operator>>(ifstream &read, Attendance &a)
+{
+    read >> a.date >> a.absents;
+    return read;
+}
+
+ostream & operator<<(ostream &out, Attendance &a)
+{
+    out << a.date << " : " << a.absents << '\n';
+    return out;
+}
+
+int main()
+{
+    string dates;
+    string absent;
+    int entries;
+    
+    cout << "Please enter total number of entries: " << endl;
+    cin >> entries;
+    
+    //Attendance* list[entries];
+    vector<Attendance> list(entries);
+    
+    
+    cout << "Enter all entries: " << endl;
+    for(int i=0; i < entries; i++)
+    {
+        cout << "Enter " << i + 1 << " Date and Absent Students" << endl;
+        cin >> dates;
+        cin >> absent;
+        list[i] = Attendance(dates, absent);
+    }
+    
+    ofstream write_Attendance("Attendance.txt");
+    for(int i=0; i < entries; i++)
+    {
+        write_Attendance << list[i];
+    }
+    write_Attendance.close();
+    
+    string atd;
+    
+    ifstream read_Attendance("Attendance.txt");
+    
+    cout << " Date " << "     " << " Absent Students " << endl;
+    
+    for(int i=0; i < entries; i++)
+    {
+        getline(read_Attendance, atd);
+        cout << atd << endl;
+    }
+    read_Attendance.close();
+    
+    return 0;
+}
+
